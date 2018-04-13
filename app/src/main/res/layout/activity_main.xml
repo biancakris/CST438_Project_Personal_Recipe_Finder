@@ -6,4 +6,16 @@
     android:layout_height="match_parent"
     tools:context="edu.csumb.abmedina.cst438_project_personal_recipe_finder.MainActivity">
 
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+
+        android:layout_alignParentTop="true"
+        android:src="@drawable/login_bg" />
+
+
+
+
 </RelativeLayout>
