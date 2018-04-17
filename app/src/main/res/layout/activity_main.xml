@@ -8,6 +8,19 @@
     android:background="@color/black">
 
 
+    <Button
+        android:id="@+id/admin_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="51dp"
+        android:background="@drawable/login_button"
+        android:text="Admin"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="278dp"
