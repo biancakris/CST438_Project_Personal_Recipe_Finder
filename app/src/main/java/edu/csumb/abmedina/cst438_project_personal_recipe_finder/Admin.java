@@ -18,43 +18,4 @@ public class Admin extends AppCompatActivity {
         //addItem("-LAK-Iyy8Ipff0jDr5Ou", "Chicken", "Meat", 5, "pound");
         //addRestriction("-LAK-Iyy8Ipff0jDr5Ou", "gluten allergy");
     }
-
-    private void addUser(String username, String dietType) {
-        DatabaseReference databaseUsers = FirebaseDatabase.getInstance().getReference("users");
-        String userId = databaseUsers.push().getKey();
-
-        //check if already registered
-
-        User newUser = new User(userId, username, dietType);
-
-        databaseUsers.child(userId).setValue(newUser);
-
-        Toast.makeText(this, "User Added", Toast.LENGTH_LONG).show();
-    }
-
-    private void addItem(String userId, String itemName, String itemType, int quantity, String unit) {
-        DatabaseReference databaseItems = FirebaseDatabase.getInstance().getReference("items");
-        String itemId = databaseItems.push().getKey();
-
-        //should I just add or update items here?
-
-        Item newItem = new Item(userId, itemId, itemName, itemType, quantity, unit);
-
-        databaseItems.child(itemId).setValue(newItem);
-
-        Toast.makeText(this, "Item Added", Toast.LENGTH_LONG).show();
-    }
-
-    private void addRestriction(String userId, String restriction) {
-        DatabaseReference databaseRestrictions = FirebaseDatabase.getInstance().getReference("restrictions");
-        String resId = databaseRestrictions.push().getKey();
-
-        //check if its already there
-
-        Restriction newRes = new Restriction(resId, userId, restriction);
-
-        databaseRestrictions.child(resId).setValue(newRes);
-
-        Toast.makeText(this, "Restriction Added", Toast.LENGTH_LONG).show();
-    }
 }
