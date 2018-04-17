@@ -16,11 +16,14 @@ public class Admin extends AppCompatActivity {
 
         //addUser("Abraham", "Standard");
         //addItem("-LAK-Iyy8Ipff0jDr5Ou", "Chicken", "Meat", 5, "pound");
+        //addRestriction("-LAK-Iyy8Ipff0jDr5Ou", "gluten allergy");
     }
 
     private void addUser(String username, String dietType) {
         DatabaseReference databaseUsers = FirebaseDatabase.getInstance().getReference("users");
         String userId = databaseUsers.push().getKey();
+
+        //check if already registered
 
         User newUser = new User(userId, username, dietType);
 
@@ -40,5 +43,18 @@ public class Admin extends AppCompatActivity {
         databaseItems.child(itemId).setValue(newItem);
 
         Toast.makeText(this, "Item Added", Toast.LENGTH_LONG).show();
+    }
+
+    private void addRestriction(String userId, String restriction) {
+        DatabaseReference databaseRestrictions = FirebaseDatabase.getInstance().getReference("restrictions");
+        String resId = databaseRestrictions.push().getKey();
+
+        //check if its already there
+
+        Restriction newRes = new Restriction(resId, userId, restriction);
+
+        databaseRestrictions.child(resId).setValue(newRes);
+
+        Toast.makeText(this, "Restriction Added", Toast.LENGTH_LONG).show();
     }
 }
