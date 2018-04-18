@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "209058236752",
+    "firebase_url": "https://cst438projectpersonalrecipefin.firebaseio.com",
+    "project_id": "cst438projectpersonalrecipefin",
+    "storage_bucket": "cst438projectpersonalrecipefin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:209058236752:android:edbd5b165ae872bc",
+        "android_client_info": {
+          "package_name": "edu.csumb.abmedina.cst438_project_personal_recipe_finder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "209058236752-dofcppcrl7es323idosa8879g4hlkfck.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.csumb.abmedina.cst438_project_personal_recipe_finder",
+            "certificate_hash": "b18d6e3e9c4ab7200274f3e524927af1b103b1a6"
+          }
+        },
+        {
+          "client_id": "209058236752-kktea724ujtpdbvqhi8nh9jv4366c7rs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3lodSjl54goS89Jdxd7mHuT4d5xYnVtE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "209058236752-kktea724ujtpdbvqhi8nh9jv4366c7rs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
