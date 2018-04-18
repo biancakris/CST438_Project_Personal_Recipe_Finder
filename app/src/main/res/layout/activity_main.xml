@@ -10,14 +10,24 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="210dp"
         android:layout_weight="1">
 
         <ImageView
-            android:layout_width="85dp"
-            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:src="@drawable/login_bg" />
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="150dp"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true" />
+            android:layout_marginTop="150dp"
+            android:src="@drawable/chews_logo" />
 
     </RelativeLayout>
 
@@ -26,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@color/colorPrimary">
+        android:background="@color/black">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,8 +49,9 @@
 
             <EditText
                 android:id="@+id/editTextEmail"
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:fontFamily="sans-serif"
                 android:hint="email"
                 android:inputType="textEmailAddress"
@@ -49,8 +60,9 @@
 
             <EditText
                 android:id="@+id/editTextPassword"
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:fontFamily="sans-serif"
                 android:hint="password"
                 android:inputType="textPassword"
@@ -59,10 +71,11 @@
 
             <Button
                 android:id="@+id/buttonLogin"
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="7dp"
+                android:background="@drawable/login_button"
                 android:text="Login"
                 android:textAllCaps="false"
                 android:textColor="@color/colorAccent" />
@@ -75,7 +88,7 @@
                 android:text="Don't have account? Sign Up"
                 android:textAlignment="center"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/white" />
 
 
         </LinearLayout>
