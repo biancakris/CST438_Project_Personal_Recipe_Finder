@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -16,6 +17,10 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         adminButton = findViewById(R.id.admin_button);
+
+        Bundle data = getIntent().getExtras();
+
+        Toast.makeText(getApplicationContext(), data.getString("userId"), Toast.LENGTH_SHORT).show();
 
         adminButton.setOnClickListener(new View.OnClickListener() {
             @Override

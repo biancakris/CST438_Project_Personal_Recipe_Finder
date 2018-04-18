@@ -78,6 +78,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 progressBar.setVisibility(View.GONE);
                 if(task.isSuccessful()){
                     Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
+                    Bundle data =  new Bundle();
+
+                    data.putString("userId", mAuth.getCurrentUser().getUid());
+                    intent.putExtras(data);
+
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }

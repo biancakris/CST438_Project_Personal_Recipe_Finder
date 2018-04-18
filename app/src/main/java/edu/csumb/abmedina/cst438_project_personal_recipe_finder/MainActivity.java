@@ -88,6 +88,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(task.isSuccessful()){
                     finish();
                     Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                    Bundle data =  new Bundle();
+
+                    data.putString("userId", mAuth.getCurrentUser().getUid());
+                    intent.putExtras(data);
+
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }else{
