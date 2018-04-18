@@ -15,7 +15,7 @@ public class Admin extends AppCompatActivity {
         setContentView(R.layout.activity_admin);
 
         //addUser("Abraham", "Standard");
-        //addItem("-LAK-Iyy8Ipff0jDr5Ou", "Chicken", "Meat", 5, "pound");
+        addItem("-LAK-Iyy8Ipff0jDr5Ou", "Salmon", "Meat", 3, "pound");
         //addRestriction("-LAK-Iyy8Ipff0jDr5Ou", "gluten allergy");
     }
 
