@@ -18,6 +18,7 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import java.util.*;
 
 public class YummlyAPI {
 
@@ -27,10 +28,24 @@ public class YummlyAPI {
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.YUMMLY_BASE_URL).newBuilder();
 
-        //here we use the urlBuilder;
-        //add for later
-        //for testing purposes
-        urlBuilder.addQueryParameter(Constants.SEARCH_QUERY_INGREDIENT,"Cheese");
+        //for each ingredient add to the url
+        if(!ingredients.isEmpty()) {
+            for (String ingredient : ingredients) {
+                urlBuilder.addQueryParameter(Constants.SEARCH_QUERY_INGREDIENT, ingredient);
+            }
+        }
+
+        //if diet Retrictions is not empty
+        if(!dietRestrictions.isEmpty())
+        {
+            urlBuilder.addQueryParameter(Constants.SEARCH_QUERY_DIET, dietRestrictions);
+        }
+
+        //if max time is selected
+        if(maxTime > 0)
+        {
+            urlBuilder.addQueryParameter(Constants.SEARCH_QUERY_MAX_TIME, Integer.toString(maxTime));
+        }
 
         String url = urlBuilder.build().toString();
 
