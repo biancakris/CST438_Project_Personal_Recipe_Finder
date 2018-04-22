@@ -18,14 +18,14 @@ public class ProfileActivity extends AppCompatActivity {
 
         adminButton = findViewById(R.id.admin_button);
 
-        Bundle data = getIntent().getExtras();
-
-        Toast.makeText(getApplicationContext(), data.getString("userId"), Toast.LENGTH_SHORT).show();
-
         adminButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle data = getIntent().getExtras();
+
                 Intent intent = new Intent(ProfileActivity.this, Admin.class);
+                intent.putExtras(data);
+
                 startActivity(intent);
             }
         });

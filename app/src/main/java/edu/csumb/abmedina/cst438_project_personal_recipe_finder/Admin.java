@@ -14,14 +14,16 @@ public class Admin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
-        //addUser("Abraham", "Standard");
-        //addItem("-LAK-Iyy8Ipff0jDr5Ou", "Cheese", "Dairy", 1, "pound");
-        //addRestriction("-LAK-Iyy8Ipff0jDr5Ou", "gluten allergy");
+        Bundle data = getIntent().getExtras();
+        String userId = data.getString("userId");
+
+        //addUser(userId,"Abraham", "Standard");
+        //addItem(userId, "Chicken", "Meat", 5, "pound");
+        addRestriction(userId, "peanut allergy");
     }
 
-    private void addUser(String username, String dietType) {
+    private void addUser(String userId, String username, String dietType) {
         DatabaseReference databaseUsers = FirebaseDatabase.getInstance().getReference("users");
-        String userId = databaseUsers.push().getKey();
 
         //check if already registered
 
