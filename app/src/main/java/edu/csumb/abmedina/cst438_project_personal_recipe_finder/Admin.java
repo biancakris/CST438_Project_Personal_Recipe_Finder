@@ -20,16 +20,18 @@ public class Admin extends AppCompatActivity {
 
     List<Item> itemList;
 
+    String userId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
         Bundle data = getIntent().getExtras();
-        String userId = data.getString("userId");
+        userId = data.getString("userId");
 
         //addUser(userId,"Abraham", "Standard");
-        //addItem(userId, "Chicken", "Meat", 5, "pound");
+        //addItem(userId, "Beef", "Meat", 3, "pound");
         //addRestriction(userId, "peanut allergy");
 
         listViewItems = findViewById(R.id.listViewItems);
@@ -43,7 +45,7 @@ public class Admin extends AppCompatActivity {
 
         DatabaseReference databaseItems = FirebaseDatabase.getInstance().getReference("items");
 
-        databaseItems.addValueEventListener(new ValueEventListener() {
+        databaseItems.orderByChild("userId").equalTo(userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
