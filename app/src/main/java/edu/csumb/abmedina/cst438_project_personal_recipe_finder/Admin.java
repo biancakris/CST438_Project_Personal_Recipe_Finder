@@ -102,6 +102,7 @@ public class Admin extends AppCompatActivity {
         final Spinner spinnerType = dialogView.findViewById(R.id.spinnerType);
         final Spinner spinnerUnit = dialogView.findViewById(R.id.spinnerUnit);
         final Button buttonUpdate = dialogView.findViewById(R.id.buttonUpdate);
+        final Button buttonDelete = dialogView.findViewById(R.id.buttonDelete);
 
         editTextName.setText(itemName);
         editTextQuantity.setText(String.valueOf(itemQuantity));
@@ -145,6 +146,21 @@ public class Admin extends AppCompatActivity {
                 alertDialog.dismiss();
             }
         });
+
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteItem(itemId);
+            }
+        });
+    }
+
+    private void deleteItem(String itemId) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("items").child(itemId);
+
+        databaseReference.removeValue();
+
+        Toast.makeText(this, "Item is deleted", Toast.LENGTH_LONG).show();
     }
 
     private boolean updateItem(String itemId, String itemName, String itemType, int quantity, String unit) {
