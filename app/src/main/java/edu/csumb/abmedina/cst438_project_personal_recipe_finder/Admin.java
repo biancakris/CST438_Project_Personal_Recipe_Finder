@@ -42,7 +42,7 @@ public class Admin extends AppCompatActivity {
 
         //addUser(userId,"Abraham", "Standard");
         //addItem(userId, "Cheese", "Meat", 3, "pound");
-        addRestriction(userId, "glutton allergy");
+        //addRestriction(userId, "glutton allergy");
 
         listViewItems = findViewById(R.id.listViewItems);
 
