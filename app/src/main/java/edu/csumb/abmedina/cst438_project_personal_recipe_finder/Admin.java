@@ -1,8 +1,18 @@
 package edu.csumb.abmedina.cst438_project_personal_recipe_finder;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -37,6 +47,15 @@ public class Admin extends AppCompatActivity {
         listViewItems = findViewById(R.id.listViewItems);
 
         itemList = new ArrayList<>();
+
+        listViewItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Item item = itemList.get(i);
+
+                showItemUpdateDialog(item.getItemId(), item.getItemName(), item.getItemType(), item.getQuantity(), item.getUnit());
+            }
+        });
     }
 
     @Override
@@ -67,6 +86,77 @@ public class Admin extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void showItemUpdateDialog(final String itemId, final String itemName, final String itemType, final int itemQuantity, final String itemUnit) {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+
+        LayoutInflater inflater = getLayoutInflater();
+
+        final View dialogView = inflater.inflate(R.layout.update_item_dialog, null);
+
+        dialogBuilder.setView(dialogView);
+
+        final EditText editTextName = dialogView.findViewById(R.id.editTextName);
+        final EditText editTextQuantity = dialogView.findViewById(R.id.editTextQuantity);
+        final Spinner spinnerType = dialogView.findViewById(R.id.spinnerType);
+        final Spinner spinnerUnit = dialogView.findViewById(R.id.spinnerUnit);
+        final Button buttonUpdate = dialogView.findViewById(R.id.buttonUpdate);
+
+        editTextName.setText(itemName);
+        editTextQuantity.setText(String.valueOf(itemQuantity));
+
+        ArrayAdapter<CharSequence> typeAdapter = ArrayAdapter.createFromResource(this, R.array.item_types, android.R.layout.simple_spinner_item);
+        typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerType.setAdapter(typeAdapter);
+        if (itemType != null) {
+            int spinnerPosition = typeAdapter.getPosition(itemType);
+            spinnerType.setSelection(spinnerPosition);
+        }
+
+        ArrayAdapter<CharSequence> unitAdapter = ArrayAdapter.createFromResource(this, R.array.item_units, android.R.layout.simple_spinner_item);
+        unitAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerUnit.setAdapter(unitAdapter);
+        if (itemUnit != null) {
+            int spinnerPosition = unitAdapter.getPosition(itemUnit);
+            spinnerUnit.setSelection(spinnerPosition);
+        }
+
+        dialogBuilder.setTitle("Updating " + itemName);
+
+        final AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.show();
+
+        buttonUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name = editTextName.getText().toString().trim();
+                int quantity = Integer.parseInt(editTextQuantity.getText().toString().trim());
+                String type = spinnerType.getSelectedItem().toString();
+                String unit = spinnerUnit.getSelectedItem().toString();
+
+                if(TextUtils.isEmpty(name)) {
+                    editTextName.setError("Name Required");
+                    return;
+                }
+
+                updateItem(itemId, name, type, quantity, unit);
+
+                alertDialog.dismiss();
+            }
+        });
+    }
+
+    private boolean updateItem(String itemId, String itemName, String itemType, int quantity, String unit) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("items").child(itemId);
+
+        Item item = new Item(userId, itemId, itemName, itemType, quantity, unit);
+
+        databaseReference.setValue(item);
+
+        Toast.makeText(this, "Item Updated Successfully", Toast.LENGTH_LONG).show();
+
+        return true;
     }
 
     private void addUser(String userId, String username, String dietType) {

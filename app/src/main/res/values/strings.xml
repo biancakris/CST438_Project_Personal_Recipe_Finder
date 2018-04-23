@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Chews</string>
+    <array name="item_types">
+        <item>Meat</item>
+        <item>Dairy</item>
+    </array>
+    <array name="item_units">
+        <item>pounds</item>
+        <item>gallons</item>
+    </array>
 </resources>
