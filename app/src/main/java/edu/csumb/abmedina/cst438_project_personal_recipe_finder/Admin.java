@@ -41,8 +41,8 @@ public class Admin extends AppCompatActivity {
         userId = data.getString("userId");
 
         //addUser(userId,"Abraham", "Standard");
-        //addItem(userId, "Beef", "Meat", 3, "pound");
-        //addRestriction(userId, "peanut allergy");
+        //addItem(userId, "Cheese", "Meat", 3, "pound");
+        addRestriction(userId, "glutton allergy");
 
         listViewItems = findViewById(R.id.listViewItems);
 
@@ -62,7 +62,7 @@ public class Admin extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        DatabaseReference databaseItems = FirebaseDatabase.getInstance().getReference("items");
+        DatabaseReference databaseItems = FirebaseDatabase.getInstance().getReference("items").child(userId);
 
         databaseItems.orderByChild("userId").equalTo(userId).addValueEventListener(new ValueEventListener() {
             @Override
@@ -156,7 +156,7 @@ public class Admin extends AppCompatActivity {
     }
 
     private void deleteItem(String itemId) {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("items").child(itemId);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("items").child(userId).child(itemId);
 
         databaseReference.removeValue();
 
@@ -164,7 +164,7 @@ public class Admin extends AppCompatActivity {
     }
 
     private boolean updateItem(String itemId, String itemName, String itemType, int quantity, String unit) {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("items").child(itemId);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("items").child(userId).child(itemId);
 
         Item item = new Item(userId, itemId, itemName, itemType, quantity, unit);
 
@@ -188,7 +188,7 @@ public class Admin extends AppCompatActivity {
     }
 
     private void addItem(String userId, String itemName, String itemType, int quantity, String unit) {
-        DatabaseReference databaseItems = FirebaseDatabase.getInstance().getReference("items");
+        DatabaseReference databaseItems = FirebaseDatabase.getInstance().getReference("items").child(userId);
         String itemId = databaseItems.push().getKey();
 
         //should I just add or update items here?
@@ -201,7 +201,7 @@ public class Admin extends AppCompatActivity {
     }
 
     private void addRestriction(String userId, String restriction) {
-        DatabaseReference databaseRestrictions = FirebaseDatabase.getInstance().getReference("restrictions");
+        DatabaseReference databaseRestrictions = FirebaseDatabase.getInstance().getReference("restrictions").child(userId);
         String resId = databaseRestrictions.push().getKey();
 
         //check if its already there
