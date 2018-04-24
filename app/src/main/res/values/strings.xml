@@ -9,13 +9,13 @@
         <item>gallons</item>
     </array>
 
-    <string color="@color/colorAccent" name="dietary_label">Dietary Lifestyle</string>
+    <string name="dietary_label" color="@color/colorAccent">Dietary Lifestyle</string>
     <string-array name="dietary_array">
-        <item >None</item>
-        <item >Pescetarian</item>
-        <item >Vegetarian</item>
-        <item >Vegan</item>
-        <item >Paleo</item>
+        <item>None</item>
+        <item>Pescetarian</item>
+        <item>Vegetarian</item>
+        <item>Vegan</item>
+        <item>Paleo</item>
     </string-array>
 
 
