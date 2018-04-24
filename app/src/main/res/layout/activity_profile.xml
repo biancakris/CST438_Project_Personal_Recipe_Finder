@@ -4,7 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.csumb.abmedina.cst438_project_personal_recipe_finder.ProfileActivity">
+    tools:context="edu.csumb.abmedina.cst438_project_personal_recipe_finder.ProfileActivity"
+    android:background="@color/black">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:rotation="180"
+        android:scaleType="fitEnd"
+        android:src="@drawable/food1" />
+
+    <ImageButton
+        android:id="@+id/chefButton"
+        android:layout_width="147dp"
+        android:layout_height="118dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="87dp"
+        android:background="@null"
+        app:srcCompat="@drawable/chef" />
+
+    <TextView
+        android:id="@+id/dietaryLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/imageButton3"
+        android:layout_marginBottom="213dp"
+        android:text="Diet: "
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/dietarySpinner"
+        android:layout_width="114dp"
+        android:layout_height="46dp"
+        android:layout_alignTop="@+id/dietaryLabel"
+        android:layout_toEndOf="@+id/dietaryLabel"
+        android:background="@drawable/login_button"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/admin_button"
@@ -12,6 +54,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="45dp"
         android:text="Admin" />
+
+
+
+
+
+
 </RelativeLayout>

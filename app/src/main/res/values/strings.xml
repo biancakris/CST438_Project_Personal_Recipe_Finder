@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Chews</string>
+    <array name="item_types">
+        <item>Meat</item>
+        <item>Dairy</item>
+    </array>
+    <array name="item_units">
+        <item>pounds</item>
+        <item>gallons</item>
+    </array>
+
+    <string name="dietary_label" color="@color/colorAccent">Dietary Lifestyle</string>
+    <string-array name="dietary_array">
+        <item>None</item>
+        <item>Pescetarian</item>
+        <item>Vegetarian</item>
+        <item>Vegan</item>
+        <item>Paleo</item>
+    </string-array>
+
+
 </resources>
