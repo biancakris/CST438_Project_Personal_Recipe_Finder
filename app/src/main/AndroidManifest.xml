@@ -20,7 +20,8 @@
         <activity android:name=".Admin" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".DashboardActivity" />
-        <activity android:name=".FridgeDashboardActivity"></activity>
+        <activity android:name=".FridgeDashboardActivity" />
+        <activity android:name=".meatActivity"></activity>
     </application>
 
 </manifest>
