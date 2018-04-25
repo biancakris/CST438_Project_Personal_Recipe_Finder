@@ -16,14 +16,37 @@
         android:rotation="180"
         android:src="@drawable/food1" />
 
-        <ImageButton
-            android:id="@+id/chefButton"
-            android:layout_width="147dp"
-            android:layout_height="118dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="87dp"
-            android:background="@null"
-            app:srcCompat="@drawable/chef" />
+    <ImageButton
+        android:id="@+id/chefButton"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="87dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/chef" />
+
+    <ImageButton
+        android:id="@+id/chewsButton"
+        android:layout_width="150dp"
+        android:layout_height="84dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/chews_logo" />
+
+    <ImageButton
+        android:id="@+id/fridgeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="235dp"
+        android:layout_below="@+id/chefButton"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorAccent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/fridge" />
+
+
 
 </RelativeLayout>
