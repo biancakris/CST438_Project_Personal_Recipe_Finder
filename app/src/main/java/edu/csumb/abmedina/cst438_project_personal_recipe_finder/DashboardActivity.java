@@ -14,6 +14,9 @@ import android.widget.ArrayAdapter;
 public class DashboardActivity extends AppCompatActivity {
 
     ImageButton chefButton;
+    ImageButton fridgeButton;
+    ImageButton recipeBookButton;
+    ImageButton shoppingListButton;
 
     String userId;
 
@@ -26,12 +29,29 @@ public class DashboardActivity extends AppCompatActivity {
         userId = data.getString("userId");
 
         chefButton = findViewById(R.id.chefButton);
+        fridgeButton = findViewById(R.id.fridgeButton);
+        recipeBookButton = findViewById(R.id.recipeButton);
+        shoppingListButton = findViewById(R.id.shoppingListButton);
 
-        //On Click (Save Button)
+        //On Click (Profile Button)
         chefButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
                 Intent intent = new Intent(DashboardActivity.this, ProfileActivity.class);
+                Bundle data =  new Bundle();
+
+                data.putString("userId", userId);
+                intent.putExtras(data);
+                startActivity(intent);
+
+            }
+        });
+
+        //On Click (Fridge Button)
+        fridgeButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(DashboardActivity.this, FridgeDashboardActivity.class);
                 Bundle data =  new Bundle();
 
                 data.putString("userId", userId);

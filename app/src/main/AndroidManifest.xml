@@ -19,7 +19,8 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".Admin" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".DashboardActivity"></activity>
+        <activity android:name=".DashboardActivity" />
+        <activity android:name=".FridgeDashboardActivity"></activity>
     </application>
 
 </manifest>
