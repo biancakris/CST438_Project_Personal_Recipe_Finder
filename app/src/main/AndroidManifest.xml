@@ -21,7 +21,7 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".DashboardActivity" />
         <activity android:name=".FridgeDashboardActivity" />
-        <activity android:name=".meatActivity"></activity>
+        <activity android:name=".MeatActivity"></activity>
     </application>
 
 </manifest>

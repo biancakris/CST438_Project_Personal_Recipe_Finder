@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".meatActivity"
+    tools:context=".MeatActivity"
     android:background="@color/black">
 
     <ImageView
@@ -25,12 +25,14 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="133dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textViewName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
             android:text="TextView"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
@@ -38,20 +40,32 @@
             android:id="@+id/textViewType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
             android:text="TextView" />
 
         <TextView
             android:id="@+id/textViewQuantity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
             android:text="TextView" />
 
         <TextView
             android:id="@+id/textViewUnit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
             android:text="TextView" />
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/chewsButton"
+        android:layout_width="150dp"
+        android:layout_height="59dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/chews_logo" />
 
 </RelativeLayout>
