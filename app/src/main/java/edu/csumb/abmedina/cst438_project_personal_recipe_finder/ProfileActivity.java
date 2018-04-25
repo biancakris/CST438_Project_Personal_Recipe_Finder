@@ -11,8 +11,10 @@ import android.widget.Toast;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    Spinner dietarySpiner;
+    Spinner dietarySpinner;
+    Spinner allergySpinner;
     Button adminButton;
+    Button saveButton;
 
 
     @Override
@@ -22,15 +24,33 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         adminButton = findViewById(R.id.admin_button);
-        dietarySpiner = (Spinner) findViewById(R.id.dietarySpinner);
+        dietarySpinner = (Spinner) findViewById(R.id.dietarySpinner);
+        allergySpinner = (Spinner) findViewById(R.id.allergySpinner);
+        saveButton = findViewById(R.id.saveButton);
 
         //set array adapter for spinner using string array and default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+        ArrayAdapter<CharSequence> dietAdapter = ArrayAdapter.createFromResource(
                 this, R.array.dietary_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        dietarySpiner.setAdapter(adapter);
+        dietAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dietarySpinner.setAdapter(dietAdapter);
+
+        //set array adapter for spinner using string array and default spinner layout
+        ArrayAdapter<CharSequence> allergyAdapter = ArrayAdapter.createFromResource(
+                this, R.array.allergy_array, android.R.layout.simple_spinner_item);
+        allergyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        allergySpinner.setAdapter(allergyAdapter);
 
 
+
+        //On Click (Save Button)
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(ProfileActivity.this, DashboardActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
         adminButton.setOnClickListener(new View.OnClickListener() {
             @Override

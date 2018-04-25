@@ -13,8 +13,30 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:rotation="180"
-        android:visibility="visible" />"
         android:src="@drawable/food1" />
+
+
+    <TextView
+        android:id="@+id/nameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/dietaryLabel"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="223dp"
+        android:text="Name: "
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="114dp"
+        android:layout_height="46dp"
+        android:layout_alignTop="@+id/nameLabel"
+        android:layout_toEndOf="@+id/nameLabel"
+        android:background="@drawable/login_button"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
     <ImageButton
         android:id="@+id/chefButton"
@@ -30,9 +52,8 @@
         android:id="@+id/dietaryLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/chefButton"
-        android:layout_marginBottom="207dp"
+        android:layout_alignBottom="@+id/dietarySpinner"
+        android:layout_toStartOf="@+id/dietarySpinner"
         android:text="Diet: "
         android:textColor="@color/white"
         android:textSize="25sp"
@@ -42,12 +63,44 @@
         android:id="@+id/dietarySpinner"
         android:layout_width="114dp"
         android:layout_height="46dp"
-        android:layout_alignBottom="@+id/dietaryLabel"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="83dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="197dp"
+        android:layout_toEndOf="@+id/allergyLabel"
         android:background="@drawable/login_button"
         android:textColor="@color/colorAccent"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/allergyLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/allergySpinner"
+        android:layout_marginStart="81dp"
+        android:text="Allergy: "
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/allergySpinner"
+        android:layout_width="114dp"
+        android:layout_height="46dp"
+        android:layout_below="@+id/dietaryLabel"
+        android:layout_toEndOf="@+id/nameLabel"
+        android:background="@drawable/login_button"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/admin_button"
+        android:layout_centerHorizontal="true"
+        android:text="Save"
+        android:background="@drawable/login_button"
+        android:textColor="@color/colorAccent" />
 
     <Button
         android:id="@+id/admin_button"
@@ -56,8 +109,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="Admin" />
-
-
 
 
 
