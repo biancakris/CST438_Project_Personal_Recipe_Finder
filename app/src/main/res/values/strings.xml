@@ -34,7 +34,20 @@
         <item>Wheat</item>
     </string-array>
 
-
+    <string-array name="courses_array">
+        <item>None</item>
+        <item>Breakfast</item>
+        <item>Brunch</item>
+        <item>Lunch</item>
+        <item>Snacks</item>
+        <item>Dinner</item>
+        <item>Soups</item>
+        <item>Desserts</item>
+        <item>Side Dishes</item>
+        <item>Appetizers</item>
+        <item>Sauces</item>
+        <item>Cocktails</item>
+    </string-array>
 
 
 </resources>
