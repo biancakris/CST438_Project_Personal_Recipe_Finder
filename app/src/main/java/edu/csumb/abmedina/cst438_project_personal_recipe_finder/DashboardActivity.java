@@ -15,10 +15,15 @@ public class DashboardActivity extends AppCompatActivity {
 
     ImageButton chefButton;
 
+    String userId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        Bundle data = getIntent().getExtras();
+        userId = data.getString("userId");
 
         chefButton = findViewById(R.id.chefButton);
 
@@ -27,6 +32,10 @@ public class DashboardActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 Intent intent = new Intent(DashboardActivity.this, ProfileActivity.class);
+                Bundle data =  new Bundle();
+
+                data.putString("userId", userId);
+                intent.putExtras(data);
                 startActivity(intent);
 
             }
