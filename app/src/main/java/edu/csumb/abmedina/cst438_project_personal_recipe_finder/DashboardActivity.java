@@ -47,7 +47,6 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
-        //On Click (Fridge Button)
         fridgeButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
