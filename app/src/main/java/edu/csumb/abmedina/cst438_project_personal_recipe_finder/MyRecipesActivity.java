@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class ShoppingListActivity extends AppCompatActivity {
+public class MyRecipesActivity extends AppCompatActivity {
 
     ImageButton chewsButton;
 
@@ -15,7 +15,7 @@ public class ShoppingListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shopping_list);
+        setContentView(R.layout.activity_my_recipes);
 
         Bundle data = getIntent().getExtras();
         userId = data.getString("userId");
@@ -25,7 +25,7 @@ public class ShoppingListActivity extends AppCompatActivity {
         chewsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
-                Intent intent = new Intent(ShoppingListActivity.this, DashboardActivity.class);
+                Intent intent = new Intent(MyRecipesActivity.this, DashboardActivity.class);
                 Bundle data =  new Bundle();
 
                 data.putString("userId", userId);

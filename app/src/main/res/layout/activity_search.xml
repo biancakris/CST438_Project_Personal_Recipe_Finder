@@ -39,7 +39,7 @@
         android:textSize="25dp"/>
 
     <Spinner
-        android:id="@+id/durationDpinner"
+        android:id="@+id/durationSpinner"
         android:layout_width="120dp"
         android:layout_height="52dp"
         android:layout_alignParentTop="true"
@@ -88,8 +88,8 @@
         android:layout_width="120dp"
         android:layout_height="52dp"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/durationDpinner"
-        android:layout_marginTop="263dp"
+        android:layout_alignStart="@+id/durationSpinner"
+        android:layout_marginTop="261dp"
         android:background="@drawable/login_button"
         android:textColor="@color/colorAccent" />
 
@@ -110,8 +110,8 @@
         android:layout_width="120dp"
         android:layout_height="52dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/durationDpinner"
-        android:layout_marginBottom="224dp"
+        android:layout_alignStart="@+id/durationSpinner"
+        android:layout_marginBottom="226dp"
         android:background="@drawable/login_button"
         android:textColor="@color/colorAccent" />
 

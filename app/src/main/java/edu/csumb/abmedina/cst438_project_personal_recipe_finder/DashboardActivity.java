@@ -100,7 +100,7 @@ public class DashboardActivity extends AppCompatActivity {
         recipeBookButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
-                Intent intent = new Intent(DashboardActivity.this, DashboardActivity.class);
+                Intent intent = new Intent(DashboardActivity.this, MyRecipesActivity.class);
                 Bundle data =  new Bundle();
 
                 data.putString("userId", userId);
