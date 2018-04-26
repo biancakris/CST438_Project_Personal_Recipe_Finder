@@ -110,7 +110,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="80dp"
-        android:background="@drawable/login_button"/>
+        android:textColor="@color/black"
+        android:background="@drawable/login_button"
+        android:entries="@array/allergy_array"/>
 
 
 </RelativeLayout>

@@ -19,7 +19,7 @@
         <item>Ovo Vegetarian</item>
     </string-array>
 
-    <string name="allergie_label">Allergies</string>
+    <string name="allergy_label">Allergies</string>
     <string-array name="allergy_array">
         <item>None</item>
         <item>Dairy</item>
