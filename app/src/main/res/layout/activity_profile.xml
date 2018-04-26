@@ -96,6 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/editTextName"
         android:layout_alignTop="@+id/allergyLabel"
+        android:background="@drawable/login_button"
         android:text="Add" />
 
     <TextView

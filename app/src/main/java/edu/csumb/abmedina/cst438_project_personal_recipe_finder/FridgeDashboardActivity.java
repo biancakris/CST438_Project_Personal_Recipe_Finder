@@ -138,5 +138,18 @@ public class FridgeDashboardActivity extends AppCompatActivity {
 
             }
         });
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(FridgeDashboardActivity.this, AddItemActivity.class);
+                Bundle data =  new Bundle();
+
+                data.putString("userId", userId);
+                intent.putExtras(data);
+                startActivity(intent);
+
+            }
+        });
     }
 }
