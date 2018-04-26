@@ -109,6 +109,13 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        addRestriction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
         //On Click (Save Button)
         saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
@@ -147,7 +154,7 @@ public class ProfileActivity extends AppCompatActivity {
         addRestriction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                addNewRestriction();
             }
         });
     }
@@ -202,6 +209,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 deleteRestriction(resId);
+                alertDialog.dismiss();
             }
         });
     }
@@ -212,5 +220,41 @@ public class ProfileActivity extends AppCompatActivity {
         databaseReference.removeValue();
 
         Toast.makeText(this, "Restriction is deleted", Toast.LENGTH_LONG).show();
+    }
+
+    private void addNewRestriction() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+
+        LayoutInflater inflater = getLayoutInflater();
+
+        final View dialogView = inflater.inflate(R.layout.activity_add_restriction, null);
+
+        dialogBuilder.setView(dialogView);
+
+        final Button buttonAdd = dialogView.findViewById(R.id.buttonAddRestriction);
+        final Spinner spinnerRestriction = dialogView.findViewById(R.id.spinnerRestrictions);
+
+        dialogBuilder.setTitle("New Restriction");
+
+        final AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.show();
+
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseReference databaseRestrictions = FirebaseDatabase.getInstance().getReference("restrictions").child(userId);
+                String resId = databaseRestrictions.push().getKey();
+
+                //check if its already there
+
+                Restriction newRes = new Restriction(resId, userId, spinnerRestriction.getSelectedItem().toString());
+
+                databaseRestrictions.child(resId).setValue(newRes);
+
+                Toast.makeText(ProfileActivity.this, "Restriction Added", Toast.LENGTH_LONG).show();
+
+                alertDialog.dismiss();
+            }
+        });
     }
 }
