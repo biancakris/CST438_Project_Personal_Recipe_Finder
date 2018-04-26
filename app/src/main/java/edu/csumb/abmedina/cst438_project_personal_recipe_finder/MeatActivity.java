@@ -106,7 +106,7 @@ public class MeatActivity extends AppCompatActivity {
         });
     }
 
-    private void showItemUpdateDialog(final String itemId, final String itemName, final String itemType, final int itemQuantity, final String itemUnit) {
+    private void showItemUpdateDialog(final String itemId, final String itemName, final String itemType, final double itemQuantity, final String itemUnit) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
 
         LayoutInflater inflater = getLayoutInflater();
@@ -150,7 +150,7 @@ public class MeatActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String name = editTextName.getText().toString().trim();
-                int quantity = Integer.parseInt(editTextQuantity.getText().toString().trim());
+                double quantity = Double.parseDouble(editTextQuantity.getText().toString().trim());
                 String type = spinnerType.getSelectedItem().toString();
                 String unit = spinnerUnit.getSelectedItem().toString();
 
@@ -181,7 +181,7 @@ public class MeatActivity extends AppCompatActivity {
         Toast.makeText(this, "Item is deleted", Toast.LENGTH_LONG).show();
     }
 
-    private boolean updateItem(String itemId, String itemName, String itemType, int quantity, String unit) {
+    private boolean updateItem(String itemId, String itemName, String itemType, double quantity, String unit) {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("items").child(userId).child(itemId);
 
         Item item = new Item(userId, itemId, itemName, itemType, quantity, unit);

@@ -1,12 +1,22 @@
 <resources>
     <string name="app_name">Chews</string>
     <array name="item_types">
-        <item>Meat</item>
         <item>Dairy</item>
+        <item>Fruit</item>
+        <item>Grain</item>
+        <item>Meat</item>
+        <item>Vegetables</item>
+        <item>Other</item>
     </array>
     <array name="item_units">
-        <item>pounds</item>
-        <item>gallons</item>
+        <item>Item Measurement</item>
+        <item>Pounds</item>
+        <item>Gallons</item>
+        <item>Cups</item>
+        <item>Pints</item>
+        <item>Ounces</item>
+        <item>Pounds</item>
+        <item>Count</item>
     </array>
 
     <string name="dietary_label" color="@color/colorAccent">Dietary Lifestyle</string>
@@ -107,14 +117,6 @@
         <item>Summer</item>
         <item>Super Bowl</item>
         <item>Thanksgiving</item>
-    </string-array>
-
-    <string-array name="measurements_array">
-        <item>Item Measurement</item>
-        <item>Cups</item>
-        <item>Pints</item>
-        <item>Ounces</item>
-        <item>Pounds</item>
     </string-array>
 
 
