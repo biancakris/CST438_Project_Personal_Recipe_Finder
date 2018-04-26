@@ -20,8 +20,9 @@ public class DashboardActivity extends AppCompatActivity {
     ImageButton chefButton;
     ImageButton chewsButton;
     ImageButton fridgeButton;
-    ImageButton recipeBookButton;
-    ImageButton shoppingListButton;
+    Button recipeBookButton;
+    Button shoppingListButton;
+    Button searchButton;
 
     String userId;
 
@@ -38,6 +39,7 @@ public class DashboardActivity extends AppCompatActivity {
         fridgeButton = findViewById(R.id.fridgeButton);
         recipeBookButton = findViewById(R.id.recipeButton);
         shoppingListButton = findViewById(R.id.shoppingListButton);
+        searchButton = findViewById(R.id.searchButton);
 
         //On Click (Profile Button)
         chefButton.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +73,48 @@ public class DashboardActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 Intent intent = new Intent(DashboardActivity.this, FridgeDashboardActivity.class);
+                Bundle data =  new Bundle();
+
+                data.putString("userId", userId);
+                intent.putExtras(data);
+                startActivity(intent);
+
+            }
+        });
+
+        //OnClick (search)
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(DashboardActivity.this, SearchActivity.class);
+                Bundle data =  new Bundle();
+
+                data.putString("userId", userId);
+                intent.putExtras(data);
+                startActivity(intent);
+
+            }
+        });
+
+        // OnClick(recipe)
+        recipeBookButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(DashboardActivity.this, DashboardActivity.class);
+                Bundle data =  new Bundle();
+
+                data.putString("userId", userId);
+                intent.putExtras(data);
+                startActivity(intent);
+
+            }
+        });
+
+        //OnClick(list)
+        shoppingListButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(DashboardActivity.this, ShoppingListActivity.class);
                 Bundle data =  new Bundle();
 
                 data.putString("userId", userId);
