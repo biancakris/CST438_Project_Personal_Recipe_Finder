@@ -30,7 +30,6 @@ public class ProfileActivity extends AppCompatActivity {
     Spinner dietarySpinner;
     //Spinner allergySpinner;
     EditText editTextName;
-    Button adminButton;
     Button saveButton;
     Button addRestriction;
     String userId;
@@ -51,7 +50,6 @@ public class ProfileActivity extends AppCompatActivity {
         Bundle data = getIntent().getExtras();
         userId = data.getString("userId");
 
-        adminButton = findViewById(R.id.admin_button);
         dietarySpinner = (Spinner) findViewById(R.id.dietarySpinner);
         //allergySpinner = (Spinner) findViewById(R.id.allergySpinner);
         editTextName = findViewById(R.id.editTextName);
@@ -135,19 +133,6 @@ public class ProfileActivity extends AppCompatActivity {
 
                 startActivity(intent);
 
-            }
-        });
-
-        adminButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ProfileActivity.this, Admin.class);
-                Bundle data =  new Bundle();
-
-                data.putString("userId", userId);
-                intent.putExtras(data);
-
-                startActivity(intent);
             }
         });
 

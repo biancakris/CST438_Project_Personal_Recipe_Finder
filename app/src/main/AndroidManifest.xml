@@ -33,7 +33,8 @@
         <activity android:name=".ShoppingListActivity" />
         <activity android:name=".AddItemActivity" />
         <activity android:name=".ListRecipesFoundActivity" />
-        <activity android:name=".MyRecipesActivity"></activity>
+        <activity android:name=".MyRecipesActivity" />
+        <activity android:name=".ViewProfileActivity"></activity>
     </application>
 
 </manifest>
