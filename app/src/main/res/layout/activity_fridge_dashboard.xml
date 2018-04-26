@@ -18,15 +18,28 @@
 
     <ImageButton
         android:id="@+id/meatButton"
-        android:layout_width="115dp"
-        android:layout_height="103dp"
+        android:layout_width="95dp"
+        android:layout_height="86dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="209dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="162dp"
         android:scaleType="fitCenter"
         android:textColor="@color/white"
+        android:background="@color/colorAccent"
         app:srcCompat="@drawable/meat" />
+
+    <ImageButton
+        android:id="@+id/grainsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="204dp"
+        android:scaleType="fitCenter"
+        android:textColor="@color/white"
+        android:background="@color/colorAccent"
+        app:srcCompat="@drawable/grains" />
 
     <ImageButton
         android:id="@+id/chewsButton"
@@ -37,6 +50,8 @@
         android:background="@null"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/chews_logo" />
+
+
 
 
 </RelativeLayout>
