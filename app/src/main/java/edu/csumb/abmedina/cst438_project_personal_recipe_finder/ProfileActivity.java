@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
@@ -17,14 +18,22 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProfileActivity extends AppCompatActivity {
 
     Spinner dietarySpinner;
-    Spinner allergySpinner;
+    //Spinner allergySpinner;
     EditText editTextName;
     Button adminButton;
     Button saveButton;
+    Button addRestriction;
     String userId;
+
+    ListView listViewRestrictions;
+
+    List<Restriction> restrictionList;
 
     DatabaseReference databaseUsers;
 
@@ -40,9 +49,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         adminButton = findViewById(R.id.admin_button);
         dietarySpinner = (Spinner) findViewById(R.id.dietarySpinner);
-        allergySpinner = (Spinner) findViewById(R.id.allergySpinner);
+        //allergySpinner = (Spinner) findViewById(R.id.allergySpinner);
         editTextName = findViewById(R.id.editTextName);
         saveButton = findViewById(R.id.saveButton);
+        addRestriction = findViewById(R.id.buttonAddRestriction);
 
         //set array adapter for spinner using string array and default spinner layout
         ArrayAdapter<CharSequence> dietAdapter = ArrayAdapter.createFromResource(
@@ -51,10 +61,10 @@ public class ProfileActivity extends AppCompatActivity {
         dietarySpinner.setAdapter(dietAdapter);
 
         //set array adapter for spinner using string array and default spinner layout
-        ArrayAdapter<CharSequence> allergyAdapter = ArrayAdapter.createFromResource(
-                this, R.array.allergy_array, android.R.layout.simple_spinner_item);
-        allergyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        allergySpinner.setAdapter(allergyAdapter);
+//        ArrayAdapter<CharSequence> allergyAdapter = ArrayAdapter.createFromResource(
+//                this, R.array.allergy_array, android.R.layout.simple_spinner_item);
+//        allergyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        allergySpinner.setAdapter(allergyAdapter);
 
         databaseUsers = FirebaseDatabase.getInstance().getReference("users");
 
@@ -81,6 +91,10 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
+
+        listViewRestrictions = findViewById(R.id.listViewRestrictions);
+
+        restrictionList = new ArrayList<>();
 
         //On Click (Save Button)
         saveButton.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +128,43 @@ public class ProfileActivity extends AppCompatActivity {
                 intent.putExtras(data);
 
                 startActivity(intent);
+            }
+        });
+
+        addRestriction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        DatabaseReference databaseItems = FirebaseDatabase.getInstance().getReference("restrictions").child(userId);
+
+        databaseItems.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                restrictionList.clear();
+
+                for(DataSnapshot itemSnapshot : dataSnapshot.getChildren()) {
+                    Restriction restriction = itemSnapshot.getValue(Restriction.class);
+
+                    restrictionList.add(restriction);
+                }
+
+                RestrictionList adapter = new RestrictionList(ProfileActivity.this, restrictionList);
+                listViewRestrictions.setAdapter(adapter);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
     }
