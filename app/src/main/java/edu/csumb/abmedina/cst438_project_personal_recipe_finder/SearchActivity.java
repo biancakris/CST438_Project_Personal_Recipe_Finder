@@ -44,20 +44,20 @@ public class SearchActivity extends AppCompatActivity {
         durationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         durationSpinner.setAdapter(durationAdapter);
 
-        ArrayAdapter<CharSequence> coursedapter = ArrayAdapter.createFromResource(
+        ArrayAdapter<CharSequence> courseAdapter = ArrayAdapter.createFromResource(
                 this, R.array.courses_array, android.R.layout.simple_spinner_item);
-        durationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        durationSpinner.setAdapter(durationAdapter);
+        courseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        courseSpinner.setAdapter(courseAdapter);
 
         ArrayAdapter<CharSequence> cuisineAdapter = ArrayAdapter.createFromResource(
                 this, R.array.cuisines_array, android.R.layout.simple_spinner_item);
         cuisineAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        cuisineSpinner.setAdapter(durationAdapter);
+        cuisineSpinner.setAdapter(cuisineAdapter);
 
         ArrayAdapter<CharSequence> holidayAdapter = ArrayAdapter.createFromResource(
                 this, R.array.holiday_array, android.R.layout.simple_spinner_item);
         holidayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        holidaySpinner.setAdapter(durationAdapter);
+        holidaySpinner.setAdapter(holidayAdapter);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)

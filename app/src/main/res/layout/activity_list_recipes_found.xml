@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListRecipesFoundActivity"
-    android:background="@color/black">
+    android:background="@color/black"
+    tools:context=".ListRecipesFoundActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -28,8 +28,8 @@
         <ListView
             android:id="@+id/listViewItems"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textColor="@color/colorAccent"/>
+            android:layout_height="336dp"
+            android:textColor="@color/colorAccent" />
 
     </LinearLayout>
 
@@ -41,6 +41,8 @@
         android:layout_centerHorizontal="true"
         android:background="@null"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/chews_logo" />
+        app:srcCompat="@drawable/chews_logo"
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="544dp" />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
