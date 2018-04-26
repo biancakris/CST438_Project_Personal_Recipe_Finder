@@ -101,20 +101,11 @@
         android:id="@+id/addButton"
         android:layout_width="100dp"
         android:layout_height="25dp"
-        android:layout_alignEnd="@+id/meatButton"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="94dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="103dp"
         android:background="@drawable/login_button"
         android:text="Add" />
-
-    <Button
-        android:id="@+id/deleteButton"
-        android:layout_width="100dp"
-        android:layout_height="25dp"
-        android:layout_alignEnd="@+id/grainsButton"
-        android:layout_alignTop="@+id/addButton"
-        android:background="@drawable/login_button"
-        android:text="Delete" />
 
 
 </RelativeLayout>
