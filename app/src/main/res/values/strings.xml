@@ -109,5 +109,13 @@
         <item>Thanksgiving</item>
     </string-array>
 
+    <string-array name="measurements_array">
+        <item>Item Measurement</item>
+        <item>Cups</item>
+        <item>Pints</item>
+        <item>Ounces</item>
+        <item>Pounds</item>
+    </string-array>
+
 
 </resources>
