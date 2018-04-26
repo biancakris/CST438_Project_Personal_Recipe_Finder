@@ -9,15 +9,11 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="105dp"
+        android:layout_height="106dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="0dp"
         android:rotation="180"
-        android:src="@drawable/fruit_bg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:src="@drawable/fruit_bg" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,7 +29,8 @@
             android:id="@+id/listViewItems"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="@color/colorAccent"/>
+            android:textColor="@color/colorAccent"
+            android:background="@drawable/login_button"/>
 
     </LinearLayout>
 

@@ -29,6 +29,7 @@
             android:id="@+id/listViewItems"
             android:layout_width="match_parent"
             android:layout_height="336dp"
+            android:background="@drawable/login_button"
             android:textColor="@color/colorAccent" />
 
     </LinearLayout>
