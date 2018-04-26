@@ -20,7 +20,6 @@ public class FridgeDashboardActivity extends AppCompatActivity {
     ImageButton chewsButton;
 
     Button addButton;
-    Button deleteButton;
 
     String userId;
 
@@ -41,7 +40,6 @@ public class FridgeDashboardActivity extends AppCompatActivity {
         dairyButton = findViewById(R.id.dairyButton);
         otherButton = findViewById(R.id.otherButton);
         addButton = findViewById(R.id.addButton);
-        deleteButton = findViewById(R.id.deleteButton);
 
         //OnClick(chews)
         chewsButton.setOnClickListener(new View.OnClickListener() {
