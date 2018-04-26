@@ -18,8 +18,22 @@
         </activity>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".Admin" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".DashboardActivity"></activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".DashboardActivity" />
+        <activity android:name=".FridgeDashboardActivity" />
+        <activity android:name=".MeatActivity" />
+        <activity android:name=".GrainsActivity" />
+        <activity android:name=".VegetablesActivity" />
+        <activity android:name=".FruitsActivity" />
+        <activity android:name=".DairyActivity" />
+        <activity android:name=".OtherFoodActivity" />
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".ShoppingListActivity" />
+        <activity android:name=".AddItemActivity" />
+        <activity android:name=".ListRecipesFoundActivity" />
+        <activity android:name=".MyRecipesActivity" />
     </application>
 
 </manifest>

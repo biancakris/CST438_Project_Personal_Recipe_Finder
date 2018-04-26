@@ -15,7 +15,106 @@
         <item>Pescetarian</item>
         <item>Vegetarian</item>
         <item>Vegan</item>
-        <item>Paleo</item>
+        <item>Lacto Vegetarian</item>
+        <item>Ovo Vegetarian</item>
+    </string-array>
+
+    <string name="allergy_label">Allergies</string>
+    <string-array name="allergy_array">
+        <item>None</item>
+        <item>Dairy</item>
+        <item>Egg</item>
+        <item>Gluten</item>
+        <item>Peanut</item>
+        <item>Seafood</item>
+        <item>Sesame</item>
+        <item>Soy</item>
+        <item>Sulfite</item>
+        <item>Tree Nut</item>
+        <item>Wheat</item>
+    </string-array>
+
+    <string-array name="courses_array">
+        <item>No Preference</item>
+        <item>Appetizers</item>
+        <item>Beverages</item>
+        <item>Breads</item>
+        <item>Breakfast</item>
+        <item>Brunch</item>
+        <item>Cocktails</item>
+        <item>Condiments</item>
+        <item>Desserts</item>
+        <item>Dinner</item>
+        <item>Lunch</item>
+        <item>Main Dishes</item>
+        <item>Salad</item>
+        <item>Sauces</item>
+        <item>Side Dishes</item>
+        <item>Snacks</item>
+        <item>Soups</item>
+    </string-array>
+
+    <string-array name="cuisines_array">
+        <item>No Preference</item>
+        <item>American</item>
+        <item>Asian</item>
+        <item>Barbecue</item>
+        <item>Cajun</item>
+        <item>Chinese</item>
+        <item>Creole</item>
+        <item>Cuban</item>
+        <item>English</item>
+        <item>French</item>
+        <item>German</item>
+        <item>Greek</item>
+        <item>Hawaiian</item>
+        <item>Hungarian</item>
+        <item>Indian</item>
+        <item>Irish</item>
+        <item>Japanese</item>
+        <item>Korean</item>
+        <item>Mediterranean</item>
+        <item>Mexican</item>
+        <item>Morroccan</item>
+        <item>Portugese</item>
+        <item>Spanish</item>
+        <item>Southern</item>
+        <item>Soul Food</item>
+        <item>Swedish</item>
+        <item>Thai</item>
+    </string-array>
+
+    <string-array name="duration_array">
+        <item>None</item>
+        <item>10 Mins</item>
+        <item>15 Mins</item>
+        <item>20 Mins</item>
+        <item>30 Mins</item>
+        <item>45 Mins</item>
+        <item>1 Hour</item>
+        <item>1.5 Hours</item>
+        <item>2+ Hours</item>
+    </string-array>
+
+    <string-array name="holiday_array">
+        <item>None</item>
+        <item>Christmas</item>
+        <item>Fourth of July</item>
+        <item>Game Day</item>
+        <item>Halloween</item>
+        <item>Hanukkah</item>
+        <item>New Years</item>
+        <item>Summer</item>
+        <item>Super Bowl</item>
+        <item>Thanksgiving</item>
+    </string-array>
+
+    <string-array name="measurements_array">
+        <item>Item Measurement</item>
+        <item>Cups</item>
+        <item>Pints</item>
+        <item>Ounces</item>
+        <item>Pounds</item>
     </string-array>
 
 

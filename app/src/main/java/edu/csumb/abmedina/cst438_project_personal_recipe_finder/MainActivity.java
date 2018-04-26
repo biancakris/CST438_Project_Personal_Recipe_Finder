@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 progressBar.setVisibility(View.GONE);
                 if(task.isSuccessful()){
                     finish();
-                    Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                    Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
                     Bundle data =  new Bundle();
 
                     data.putString("userId", mAuth.getCurrentUser().getUid());

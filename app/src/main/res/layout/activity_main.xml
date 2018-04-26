@@ -15,10 +15,9 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="274dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
             android:src="@drawable/login_bg" />
 
         <ImageView
@@ -49,19 +48,19 @@
 
             <EditText
                 android:id="@+id/editTextEmail"
-                android:layout_width="200dp"
+                android:layout_width="228dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif"
                 android:hint="email"
                 android:inputType="textEmailAddress"
                 android:paddingBottom="15dp"
-                android:textColorHint="@color/colorAccent"
-                android:textColor="@color/colorAccent"/>
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent" />
 
             <EditText
                 android:id="@+id/editTextPassword"
-                android:layout_width="200dp"
+                android:layout_width="228dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif"

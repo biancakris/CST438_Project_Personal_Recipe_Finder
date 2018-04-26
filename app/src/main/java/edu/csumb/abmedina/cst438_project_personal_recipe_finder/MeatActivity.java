@@ -5,14 +5,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.View;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -24,7 +28,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Admin extends AppCompatActivity {
+public class MeatActivity extends AppCompatActivity {
+
+    ImageButton chewsButton;
 
     ListView listViewItems;
 
@@ -32,21 +38,33 @@ public class Admin extends AppCompatActivity {
 
     String userId;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin);
+        setContentView(R.layout.activity_meat);
 
         Bundle data = getIntent().getExtras();
         userId = data.getString("userId");
 
-        //addUser(userId,"Abraham", "Standard");
-        //addItem(userId, "Salmon", "Meat", 2, "pounds");
-        addRestriction(userId, "Dairy");
-
         listViewItems = findViewById(R.id.listViewItems);
 
         itemList = new ArrayList<>();
+
+        chewsButton = findViewById(R.id.chewsButton);
+        //OnClick(chews)
+        chewsButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(MeatActivity.this, DashboardActivity.class);
+                Bundle data =  new Bundle();
+
+                data.putString("userId", userId);
+                intent.putExtras(data);
+                startActivity(intent);
+
+            }
+        });
 
         listViewItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -64,7 +82,7 @@ public class Admin extends AppCompatActivity {
 
         DatabaseReference databaseItems = FirebaseDatabase.getInstance().getReference("items").child(userId);
 
-        databaseItems.orderByChild("userId").equalTo(userId).addValueEventListener(new ValueEventListener() {
+        databaseItems.orderByChild("itemType").equalTo("Meat").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -76,7 +94,7 @@ public class Admin extends AppCompatActivity {
                     itemList.add(item);
                 }
 
-                ItemList adapter = new ItemList(Admin.this, itemList);
+                ItemList adapter = new ItemList(MeatActivity.this, itemList);
                 listViewItems.setAdapter(adapter);
 
             }
@@ -173,43 +191,5 @@ public class Admin extends AppCompatActivity {
         Toast.makeText(this, "Item Updated Successfully", Toast.LENGTH_LONG).show();
 
         return true;
-    }
-
-    private void addUser(String userId, String username, String dietType) {
-        DatabaseReference databaseUsers = FirebaseDatabase.getInstance().getReference("users");
-
-        //check if already registered
-
-        User newUser = new User(userId, username, dietType);
-
-        databaseUsers.child(userId).setValue(newUser);
-
-        Toast.makeText(this, "User Added", Toast.LENGTH_LONG).show();
-    }
-
-    private void addItem(String userId, String itemName, String itemType, int quantity, String unit) {
-        DatabaseReference databaseItems = FirebaseDatabase.getInstance().getReference("items").child(userId);
-        String itemId = databaseItems.push().getKey();
-
-        //should I just add or update items here?
-
-        Item newItem = new Item(userId, itemId, itemName, itemType, quantity, unit);
-
-        databaseItems.child(itemId).setValue(newItem);
-
-        Toast.makeText(this, "Item Added", Toast.LENGTH_LONG).show();
-    }
-
-    private void addRestriction(String userId, String restriction) {
-        DatabaseReference databaseRestrictions = FirebaseDatabase.getInstance().getReference("restrictions").child(userId);
-        String resId = databaseRestrictions.push().getKey();
-
-        //check if its already there
-
-        Restriction newRes = new Restriction(resId, userId, restriction);
-
-        databaseRestrictions.child(resId).setValue(newRes);
-
-        Toast.makeText(this, "Restriction Added", Toast.LENGTH_LONG).show();
     }
 }

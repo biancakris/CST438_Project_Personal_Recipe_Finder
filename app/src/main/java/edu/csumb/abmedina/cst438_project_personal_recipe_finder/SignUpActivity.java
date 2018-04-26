@@ -19,6 +19,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthActionCodeException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -82,6 +84,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
                     data.putString("userId", mAuth.getCurrentUser().getUid());
                     intent.putExtras(data);
+
+                    DatabaseReference databaseUsers = FirebaseDatabase.getInstance().getReference("users");
+
+                    User newUser = new User(mAuth.getCurrentUser().getUid(), "New User", "None");
+
+                    databaseUsers.child(mAuth.getCurrentUser().getUid()).setValue(newUser);
 
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
