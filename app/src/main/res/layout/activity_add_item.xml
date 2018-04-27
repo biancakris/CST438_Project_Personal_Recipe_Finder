@@ -2,7 +2,8 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/black">
 
     <EditText
         android:id="@+id/editTextName"
@@ -10,13 +11,17 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Item Name"
-        android:inputType="textPersonName" />
+        android:textColorHint="@color/white"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"/>
 
     <Spinner
         android:id="@+id/spinnerType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/item_types" />
+        android:entries="@array/item_types"
+        android:textColor="@color/white"
+        android:background="@color/white"/>
 
     <EditText
         android:id="@+id/editTextQuantity"
@@ -24,18 +29,31 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Quantity"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"/>
 
     <Spinner
         android:id="@+id/spinnerUnit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/item_units" />
+        android:entries="@array/item_units"
+        android:background="@color/white"/>
 
-    <Button
-        android:id="@+id/buttonAddItem"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add" />
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/buttonAddItem"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/login_button"
+            android:text="Add" />
+    </RelativeLayout>
+
+
 
 </LinearLayout>
