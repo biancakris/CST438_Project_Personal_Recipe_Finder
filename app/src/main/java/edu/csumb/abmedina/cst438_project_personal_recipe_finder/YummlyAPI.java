@@ -1,6 +1,7 @@
+package edu.csumb.abmedina.cst438_project_personal_recipe_finder;
+
 import java.util.ArrayList;
 
-import android.provider.SyncStateContract;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -8,8 +9,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
+import edu.csumb.abmedina.cst438_project_personal_recipe_finder.Constants;
 import edu.csumb.abmedina.cst438_project_personal_recipe_finder.Recipe;
 import okhttp3.Callback;
 import okhttp3.Call;
@@ -18,7 +19,6 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import java.util.*;
 
 public class YummlyAPI {
 
@@ -36,7 +36,7 @@ public class YummlyAPI {
         }
 
         //if diet Retrictions is not empty
-        if(!dietRestrictions.isEmpty())
+        if(!dietRestrictions.isEmpty() || !(dietRestrictions == ""))
         {
             urlBuilder.addQueryParameter(Constants.SEARCH_QUERY_DIET, dietRestrictions);
         }

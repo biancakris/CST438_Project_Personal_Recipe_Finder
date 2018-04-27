@@ -1,8 +1,10 @@
 package edu.csumb.abmedina.cst438_project_personal_recipe_finder;
 
 import android.content.Intent;
+import android.os.Debug;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
@@ -62,12 +64,14 @@ public class SearchActivity extends AppCompatActivity {
         searchButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
-                Intent intent = new Intent(SearchActivity.this, ListRecipesFoundActivity.class);
+                Intent intent = new Intent(SearchActivity.this, RecipeListActivity.class);
                 Bundle data =  new Bundle();
 
                 data.putString("userId", userId);
                 intent.putExtras(data);
+                Log.d("breaks", "breaks" );
                 startActivity(intent);
+
 
             }
         });

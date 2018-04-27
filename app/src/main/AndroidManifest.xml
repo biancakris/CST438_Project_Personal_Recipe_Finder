@@ -33,6 +33,11 @@
         <activity android:name=".ShoppingListActivity" />
         <activity android:name=".ListRecipesFoundActivity" />
         <activity android:name=".MyRecipesActivity" />
+        <activity android:name=".RecipeListActivity"/>
+        <activity android:name=".RecipeDetailActivity"/>
+
+        <!--<activity android:name=".RecipeDetailFragment"/>-->
+
     </application>
 
 </manifest>
