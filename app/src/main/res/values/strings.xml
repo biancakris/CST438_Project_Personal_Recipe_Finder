@@ -5,7 +5,7 @@
         <item>Fruit</item>
         <item>Grain</item>
         <item>Meat</item>
-        <item>Vegetables</item>
+        <item>Vegetable</item>
         <item>Other</item>
     </array>
     <array name="item_units">
@@ -15,7 +15,6 @@
         <item>Cups</item>
         <item>Pints</item>
         <item>Ounces</item>
-        <item>Pounds</item>
         <item>Count</item>
     </array>
 
