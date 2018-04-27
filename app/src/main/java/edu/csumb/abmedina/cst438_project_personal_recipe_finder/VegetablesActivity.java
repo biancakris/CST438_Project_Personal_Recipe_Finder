@@ -169,6 +169,7 @@ public class VegetablesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 deleteItem(itemId);
+                alertDialog.dismiss();
             }
         });
     }
