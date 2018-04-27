@@ -31,7 +31,6 @@
         <activity android:name=".OtherFoodActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".ShoppingListActivity" />
-        <activity android:name=".AddItemActivity" />
         <activity android:name=".ListRecipesFoundActivity" />
         <activity android:name=".MyRecipesActivity" />
         <activity android:name=".RecipeListActivity"/>
