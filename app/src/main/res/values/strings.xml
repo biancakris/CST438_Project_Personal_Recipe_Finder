@@ -30,7 +30,6 @@
 
     <string name="allergy_label">Allergies</string>
     <string-array name="allergy_array">
-        <item>None</item>
         <item>Dairy</item>
         <item>Egg</item>
         <item>Gluten</item>

@@ -152,7 +152,7 @@ public class YummlyAPI {
                 for(DataSnapshot itemSnapshot : dataSnapshot.getChildren()) {
                     Restriction restriction = itemSnapshot.getValue(Restriction.class);
 
-                    allergyList.add(restriction.getRestriction());
+                    allergyList.add(translate(restriction.getRestriction()));
                 }
             }
 
@@ -175,7 +175,7 @@ public class YummlyAPI {
                 dietTypeList.clear();
 
                 User user = dataSnapshot.getValue(User.class);
-                dietTypeList.add(user.getDietType());
+                dietTypeList.add(translate(user.getDietType()));
             }
 
             @Override
@@ -185,5 +185,63 @@ public class YummlyAPI {
         });
 
         return dietTypeList.get(0);
+    }
+
+    public static String translate(String value) {
+
+        switch(value) {
+            case "Lacto Vegetarian":
+                value = "388^Lacto vegetarian";
+                break;
+            case "Ovo Vegetarian":
+                value = "389^Ovo vegetarian";
+                break;
+            case "Pescetarian":
+                value = "390^Pescetarian";
+                break;
+            case "Vegan":
+                value = "386^Vegan";
+                break;
+            case "Lacto-ovo Vegetarian":
+                value = "387^Lacto-ovo vegetarian";
+                break;
+            case "Paleo":
+                value = "403^Paleo";
+                break;
+            case "Gluten":
+                value = "393^Gluten-Free";
+                break;
+            case "Peanut":
+                value = "394^Peanut-Free";
+                break;
+            case "Seafood":
+                value = "398^Seafood-Free";
+                break;
+            case "Sesame":
+                value = "399^Sesame-Free";
+                break;
+            case "Soy":
+                value = "400^Soy-Free";
+                break;
+            case "Dairy":
+                value = "396^Dairy-Free";
+                break;
+            case "Egg":
+                value = "397^Egg-Free";
+                break;
+            case "Sulfite":
+                value = "401^Sulfite-Free";
+                break;
+            case "Tree Nut":
+                value = "395^Tree Nut-Free";
+                break;
+            case "Wheat":
+                value = "392^Wheat-Free";
+                break;
+            default:
+                break;
+        }
+
+        return value;
     }
 }
