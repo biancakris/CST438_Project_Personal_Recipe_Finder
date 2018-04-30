@@ -37,6 +37,7 @@ public class SearchActivity extends AppCompatActivity {
         courseSpinner = findViewById(R.id.courseSpinner);
         cuisineSpinner = findViewById(R.id.cuisineSpinner);
         holidaySpinner = findViewById(R.id.holidaySpinner);
+
         searchButton = findViewById(R.id.searchButton);
         chewsButton = findViewById(R.id.chewsButton);
 
@@ -64,6 +65,12 @@ public class SearchActivity extends AppCompatActivity {
         searchButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
+                String HolidayText = holidaySpinner.getSelectedItem().toString();
+                String durationText = durationSpinner.getSelectedItem().toString();
+                String courseText = courseSpinner.getSelectedItem().toString();
+                String cuisineText = cuisineSpinner.getSelectedItem().toString();
+
+
                 Intent intent = new Intent(SearchActivity.this, RecipeListActivity.class);
                 Bundle data =  new Bundle();
 
@@ -71,8 +78,7 @@ public class SearchActivity extends AppCompatActivity {
                 intent.putExtras(data);
                 Log.d("breaks", "breaks" );
                 startActivity(intent);
-
-
+                
             }
         });
 
