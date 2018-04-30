@@ -42,20 +42,20 @@ public class Admin extends AppCompatActivity {
 
         //addUser(userId,"Abraham", "Standard");
         //addItem(userId, "Salmon", "Meat", 2, "pounds");
-        addRestriction(userId, "Dairy");
+        //addRestriction(userId, "Dairy");
 
-        listViewItems = findViewById(R.id.listViewItems);
+        //listViewItems = findViewById(R.id.listViewItems);
 
-        itemList = new ArrayList<>();
+        //itemList = new ArrayList<>();
 
-        listViewItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Item item = itemList.get(i);
-
-                showItemUpdateDialog(item.getItemId(), item.getItemName(), item.getItemType(), item.getQuantity(), item.getUnit());
-            }
-        });
+//        listViewItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Item item = itemList.get(i);
+//
+//                showItemUpdateDialog(item.getItemId(), item.getItemName(), item.getItemType(), item.getQuantity(), item.getUnit());
+//            }
+//        });
     }
 
     @Override
