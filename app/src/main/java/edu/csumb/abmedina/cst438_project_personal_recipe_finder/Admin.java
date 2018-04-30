@@ -42,20 +42,20 @@ public class Admin extends AppCompatActivity {
 
         //addUser(userId,"Abraham", "Standard");
         //addItem(userId, "Salmon", "Meat", 2, "pounds");
-        addRestriction(userId, "Dairy");
+        //addRestriction(userId, "Dairy");
 
-        listViewItems = findViewById(R.id.listViewItems);
+        //listViewItems = findViewById(R.id.listViewItems);
 
-        itemList = new ArrayList<>();
+        //itemList = new ArrayList<>();
 
-        listViewItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Item item = itemList.get(i);
-
-                showItemUpdateDialog(item.getItemId(), item.getItemName(), item.getItemType(), item.getQuantity(), item.getUnit());
-            }
-        });
+//        listViewItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Item item = itemList.get(i);
+//
+//                showItemUpdateDialog(item.getItemId(), item.getItemName(), item.getItemType(), item.getQuantity(), item.getUnit());
+//            }
+//        });
     }
 
     @Override
@@ -88,7 +88,7 @@ public class Admin extends AppCompatActivity {
         });
     }
 
-    private void showItemUpdateDialog(final String itemId, final String itemName, final String itemType, final int itemQuantity, final String itemUnit) {
+    private void showItemUpdateDialog(final String itemId, final String itemName, final String itemType, final double itemQuantity, final String itemUnit) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
 
         LayoutInflater inflater = getLayoutInflater();
@@ -132,7 +132,7 @@ public class Admin extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String name = editTextName.getText().toString().trim();
-                int quantity = Integer.parseInt(editTextQuantity.getText().toString().trim());
+                double quantity = Double.parseDouble(editTextQuantity.getText().toString().trim());
                 String type = spinnerType.getSelectedItem().toString();
                 String unit = spinnerUnit.getSelectedItem().toString();
 
@@ -163,7 +163,7 @@ public class Admin extends AppCompatActivity {
         Toast.makeText(this, "Item is deleted", Toast.LENGTH_LONG).show();
     }
 
-    private boolean updateItem(String itemId, String itemName, String itemType, int quantity, String unit) {
+    private boolean updateItem(String itemId, String itemName, String itemType, double quantity, String unit) {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("items").child(userId).child(itemId);
 
         Item item = new Item(userId, itemId, itemName, itemType, quantity, unit);
@@ -187,7 +187,7 @@ public class Admin extends AppCompatActivity {
         Toast.makeText(this, "User Added", Toast.LENGTH_LONG).show();
     }
 
-    private void addItem(String userId, String itemName, String itemType, int quantity, String unit) {
+    private void addItem(String userId, String itemName, String itemType, double quantity, String unit) {
         DatabaseReference databaseItems = FirebaseDatabase.getInstance().getReference("items").child(userId);
         String itemId = databaseItems.push().getKey();
 

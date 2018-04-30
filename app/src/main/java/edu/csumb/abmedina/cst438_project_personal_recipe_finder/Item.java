@@ -5,12 +5,12 @@ public class Item {
     private String itemId;
     private String itemName;
     private String itemType;
-    private int quantity;
+    private double quantity;
     private String unit;
 
     public Item() {}
 
-    public Item(String userId, String itemId, String itemName, String itemType, int quantity, String unit) {
+    public Item(String userId, String itemId, String itemName, String itemType, double quantity, String unit) {
         this.userId = userId;
         this.itemId = itemId;
         this.itemName = itemName;
@@ -35,7 +35,7 @@ public class Item {
         return itemType;
     }
 
-    public int getQuantity() {
+    public double getQuantity() {
         return quantity;
     }
 

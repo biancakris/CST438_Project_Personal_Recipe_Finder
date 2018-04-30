@@ -1,3 +1,5 @@
+package edu.csumb.abmedina.cst438_project_personal_recipe_finder;
+
 import edu.csumb.abmedina.cst438_project_personal_recipe_finder.BuildConfig;
 
 public class Constants {
@@ -9,5 +11,6 @@ public class Constants {
     public static final String SEARCH_QUERY_INGREDIENT = "allowedIngredient[]";
     public static final String SEARCH_QUERY_DIET = "allowedDiet[]";
     public static final String SEARCH_QUERY_MAX_TIME = "maxTotalTimeInSeconds";
+    public static final String PREFERENCES_LOCATION_KEY = "recipe";
 
 }
