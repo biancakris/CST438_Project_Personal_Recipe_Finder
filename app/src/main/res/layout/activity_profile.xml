@@ -45,6 +45,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/nameLabel"
         android:layout_marginEnd="83dp"
+        android:textColor="@color/white"
         android:background="@drawable/login_button"
         android:ems="10"
         android:inputType="textPersonName" />
@@ -67,7 +68,6 @@
         android:layout_alignStart="@+id/editTextName"
         android:layout_alignTop="@+id/dietaryLabel"
         android:background="@drawable/login_button"
-        android:textColor="@color/colorAccent"
         android:textStyle="bold" />
 
     <Button
@@ -88,6 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/editTextName"
         android:layout_alignTop="@+id/allergyLabel"
+        android:textColor="@color/colorAccent"
         android:background="@drawable/login_button"
         android:text="Add" />
 
