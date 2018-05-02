@@ -1,14 +1,18 @@
 package edu.csumb.abmedina.cst438_project_personal_recipe_finder;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.ImageButton;
 
 public class ShoppingListActivity extends AppCompatActivity {
 
     ImageButton chewsButton;
+
+    TextView titleLabel;
 
     String userId;
 
@@ -21,6 +25,9 @@ public class ShoppingListActivity extends AppCompatActivity {
         userId = data.getString("userId");
 
         chewsButton = findViewById(R.id.chewsButton);
+        titleLabel = findViewById(R.id.titleLabel);
+
+        titleLabel.setPaintFlags(titleLabel.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         chewsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
