@@ -31,9 +31,11 @@ public class RecipeListActivity extends AppCompatActivity {
 
     public ArrayList<Recipe> mRecipes = new ArrayList<>();
 
-    public ArrayList<String> ingrediants = new ArrayList<>();
-
     public String userId;
+    public String holiday;
+    public String duration;
+    public String course;
+    public String cuisine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,10 @@ public class RecipeListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         Bundle data = getIntent().getExtras();
         userId = data.getString("userId");
-        ingrediants.add("cheese");
+        holiday = data.getString("holidayText");
+        duration = data.getString("durationText");
+        course = data.getString("courseText");
+        cuisine = data.getString("cuisineText");
 
         getRecipes();
 
@@ -56,7 +61,8 @@ public class RecipeListActivity extends AppCompatActivity {
 
     private void getRecipes() {
         final YummlyAPI yummlyService = new YummlyAPI();
-        yummlyService.searchRecipes(ingrediants,"",0, new Callback() {
+        yummlyService.searchRecipes(userId, holiday, duration, course, cuisine, new Callback() {
+
 
             @Override
             public void onFailure(Call call, IOException e) {
@@ -71,7 +77,7 @@ public class RecipeListActivity extends AppCompatActivity {
 
                     @Override
                     public void run() {
-                        mAdapter = new RecipeListAdapter(getApplicationContext(), mRecipes);
+                        mAdapter = new RecipeListAdapter(RecipeListActivity.this, mRecipes);
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager =
                                 new LinearLayoutManager(RecipeListActivity.this);

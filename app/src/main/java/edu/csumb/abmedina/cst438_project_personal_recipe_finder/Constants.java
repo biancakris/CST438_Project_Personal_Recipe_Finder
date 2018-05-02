@@ -10,6 +10,10 @@ public class Constants {
     public static final String API_KEY_QUERY_PARAMETER = "X-Yummly-App-Key";
     public static final String SEARCH_QUERY_INGREDIENT = "allowedIngredient[]";
     public static final String SEARCH_QUERY_DIET = "allowedDiet[]";
+    public static final String SEARCH_QUERY_ALLERGY = "allowedAllergy[]";
+    public static final String SEARCH_QUERY_CUISINE = "allowedCuisine[]";
+    public static final String SEARCH_QUERY_COURSE = "allowedCourse[]";
+    public static final String SEARCH_QUERY_HOLIDAY = "allowedHoliday[]";
     public static final String SEARCH_QUERY_MAX_TIME = "maxTotalTimeInSeconds";
     public static final String PREFERENCES_LOCATION_KEY = "recipe";
 

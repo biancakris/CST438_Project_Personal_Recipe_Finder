@@ -71,7 +71,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
 
             Log.d("mContext","mContext:\n "+mContext.toString());
 
-            //mContext.startActivity(intent);
+          //  mContext.startActivity(intent);
 
         }
 

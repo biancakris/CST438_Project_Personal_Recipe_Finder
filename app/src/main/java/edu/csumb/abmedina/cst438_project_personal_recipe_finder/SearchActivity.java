@@ -83,8 +83,12 @@ public class SearchActivity extends AppCompatActivity {
                 Bundle data =  new Bundle();
 
                 data.putString("userId", userId);
+                data.putString("holidayText",HolidayText);
+                data.putString("durationText", durationText);
+                data.putString("courseText", courseText);
+                data.putString("cusineText", cuisineText);
                 intent.putExtras(data);
-                Log.d("breaks", "breaks" );
+                //Log.d("breaks", "breaks" );
                 startActivity(intent);
                 
             }

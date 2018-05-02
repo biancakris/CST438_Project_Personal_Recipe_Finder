@@ -30,33 +30,61 @@ import okhttp3.Response;
 
 public class YummlyAPI {
 
-    public static void searchRecipes(ArrayList<String> ingredients, String dietRestrictions, int maxTime, Callback callback){
-//        ArrayList<String> ingredients = getItemList(userId);
-//        ArrayList<String> allergies = getAllergyList(userId);
-//        String dietType = getDietType(userId);
+    public static void searchRecipes(String userId, String holiday, String duration, String course, String cuisine, Callback callback){ ArrayList<String> ingredients = getItemList(userId);
+      ArrayList<String> allergies = getAllergyList(userId);
+      ArrayList<String> dietType = getDietType(userId);
 
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.YUMMLY_BASE_URL).newBuilder();
 
-        //for each ingredient add to the url
+        //add the ingredietants to the URL
         if(!ingredients.isEmpty()) {
-            for (String ingredient : ingredients) {
+            for(String ingredient: ingredients) {
                 urlBuilder.addQueryParameter(Constants.SEARCH_QUERY_INGREDIENT, ingredient);
             }
         }
 
-        //if diet Retrictions is not empty
-        if(!dietRestrictions.isEmpty() || !(dietRestrictions == ""))
+        //adds diet type to the URL
+        if(!dietType.isEmpty())
         {
-            urlBuilder.addQueryParameter(Constants.SEARCH_QUERY_DIET, dietRestrictions);
+            for(String diet: dietType) {
+                urlBuilder.addQueryParameter(Constants.SEARCH_QUERY_DIET, diet);
+            }
         }
 
-        //if max time is selected
-        if(maxTime > 0)
+        //add allegery list to the URL
+        if(!allergies.isEmpty())
         {
-            urlBuilder.addQueryParameter(Constants.SEARCH_QUERY_MAX_TIME, Integer.toString(maxTime));
+            for(String allergy: allergies)
+            {
+                urlBuilder.addQueryParameter(Constants.SEARCH_QUERY_ALLERGY, allergy);
+            }
+        }
+
+        //adds holiday to the URL need to set up holiday in the translate function
+        if(!(holiday == ""))
+        {
+           // urlBuilder.addQueryParameter(Constants.SEARCH_QUERY_HOLIDAY, translate(holiday));
+        }
+
+        //adds duration to the URL need to set up duration in its own function
+        if(!(duration == ""))
+        {
+            //urlBuilder.addQueryParameter(Constants.SEARCH_QUERY_MAX_TIME, "");
+        }
+
+        //adds course to the URL need to set up in the translate function
+        if(!(course == ""))
+        {
+            //urlBuilder.addQueryParameter(Constants.SEARCH_QUERY_COURSE, "");
+        }
+
+        //adds cuisine to the URK need to set up in the translate function
+        if(!(cuisine == ""))
+        {
+            //urlBuilder.addQueryParameter(Constants.SEARCH_QUERY_CUISINE,"");
         }
 
         String url = urlBuilder.build().toString();
@@ -165,7 +193,7 @@ public class YummlyAPI {
         return allergyList;
     }
 
-    public static String getDietType(String userId) {
+    public static ArrayList<String> getDietType(String userId) {
         DatabaseReference databaseUsers = FirebaseDatabase.getInstance().getReference("users");
         final ArrayList<String> dietTypeList = new ArrayList<>();
 
@@ -184,12 +212,13 @@ public class YummlyAPI {
             }
         });
 
-        return dietTypeList.get(0);
+        return dietTypeList;
     }
 
     public static String translate(String value) {
 
         switch(value) {
+            //Diet Types
             case "Lacto Vegetarian":
                 value = "388^Lacto vegetarian";
                 break;
@@ -208,6 +237,7 @@ public class YummlyAPI {
             case "Paleo":
                 value = "403^Paleo";
                 break;
+            //Allegeries
             case "Gluten":
                 value = "393^Gluten-Free";
                 break;
@@ -237,6 +267,13 @@ public class YummlyAPI {
                 break;
             case "Wheat":
                 value = "392^Wheat-Free";
+                break;
+            //cusines need to implement
+            case "American":
+                value ="cuisine^cuisine-american";
+                break;
+            case "Italian":
+                value ="cuisine^cuisine-italian";
                 break;
             default:
                 break;
