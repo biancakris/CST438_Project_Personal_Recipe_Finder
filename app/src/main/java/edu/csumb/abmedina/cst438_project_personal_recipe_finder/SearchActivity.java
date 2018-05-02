@@ -90,7 +90,7 @@ public class SearchActivity extends AppCompatActivity {
                 intent.putExtras(data);
                 //Log.d("breaks", "breaks" );
                 startActivity(intent);
-                
+
             }
         });
 
