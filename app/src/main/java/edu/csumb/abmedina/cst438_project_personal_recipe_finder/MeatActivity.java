@@ -1,5 +1,6 @@
 package edu.csumb.abmedina.cst438_project_personal_recipe_finder;
 
+import android.graphics.Paint;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -31,6 +33,8 @@ import java.util.List;
 public class MeatActivity extends AppCompatActivity {
 
     ImageButton chewsButton;
+
+    TextView titleLabel;
 
     ListView listViewItems;
 
@@ -52,6 +56,9 @@ public class MeatActivity extends AppCompatActivity {
         itemList = new ArrayList<>();
 
         chewsButton = findViewById(R.id.chewsButton);
+        titleLabel = findViewById(R.id.titleLabel);
+
+        titleLabel.setPaintFlags(titleLabel.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         //OnClick(chews)
         chewsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)

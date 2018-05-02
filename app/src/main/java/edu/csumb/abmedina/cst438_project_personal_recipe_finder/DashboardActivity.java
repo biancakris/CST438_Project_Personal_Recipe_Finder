@@ -135,7 +135,7 @@ public class DashboardActivity extends AppCompatActivity {
         myFridgeButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
-                Intent intent = new Intent(DashboardActivity.this, ShoppingListActivity.class);
+                Intent intent = new Intent(DashboardActivity.this, FridgeDashboardActivity.class);
                 Bundle data =  new Bundle();
 
                 data.putString("userId", userId);
