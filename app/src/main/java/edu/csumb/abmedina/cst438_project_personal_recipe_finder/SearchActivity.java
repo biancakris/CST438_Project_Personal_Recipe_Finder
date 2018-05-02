@@ -13,6 +13,14 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -28,6 +36,10 @@ public class SearchActivity extends AppCompatActivity {
     TextView titleLabel;
 
     String userId;
+
+    ArrayList<String> itemList = new ArrayList<>();
+    ArrayList<String> allergyList = new ArrayList<>();
+    String dietType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +90,6 @@ public class SearchActivity extends AppCompatActivity {
                 String courseText = courseSpinner.getSelectedItem().toString();
                 String cuisineText = cuisineSpinner.getSelectedItem().toString();
 
-
                 Intent intent = new Intent(SearchActivity.this, RecipeListActivity.class);
                 Bundle data =  new Bundle();
 
@@ -87,6 +98,9 @@ public class SearchActivity extends AppCompatActivity {
                 data.putString("durationText", durationText);
                 data.putString("courseText", courseText);
                 data.putString("cusineText", cuisineText);
+                intent.putExtra("itemList", itemList);
+                intent.putExtra("allergyList", allergyList);
+                intent.putExtra("dietType", dietType);
                 intent.putExtras(data);
                 //Log.d("breaks", "breaks" );
                 startActivity(intent);
@@ -103,6 +117,137 @@ public class SearchActivity extends AppCompatActivity {
                 data.putString("userId", userId);
                 intent.putExtras(data);
                 startActivity(intent);
+
+            }
+        });
+
+    }
+
+    public static String translate(String value) {
+
+        switch(value) {
+            //Diet Types
+            case "Lacto Vegetarian":
+                value = "388^Lacto vegetarian";
+                break;
+            case "Ovo Vegetarian":
+                value = "389^Ovo vegetarian";
+                break;
+            case "Pescetarian":
+                value = "390^Pescetarian";
+                break;
+            case "Vegan":
+                value = "386^Vegan";
+                break;
+            case "Lacto-ovo Vegetarian":
+                value = "387^Lacto-ovo vegetarian";
+                break;
+            case "Paleo":
+                value = "403^Paleo";
+                break;
+            //Allegeries
+            case "Gluten":
+                value = "393^Gluten-Free";
+                break;
+            case "Peanut":
+                value = "394^Peanut-Free";
+                break;
+            case "Seafood":
+                value = "398^Seafood-Free";
+                break;
+            case "Sesame":
+                value = "399^Sesame-Free";
+                break;
+            case "Soy":
+                value = "400^Soy-Free";
+                break;
+            case "Dairy":
+                value = "396^Dairy-Free";
+                break;
+            case "Egg":
+                value = "397^Egg-Free";
+                break;
+            case "Sulfite":
+                value = "401^Sulfite-Free";
+                break;
+            case "Tree Nut":
+                value = "395^Tree Nut-Free";
+                break;
+            case "Wheat":
+                value = "392^Wheat-Free";
+                break;
+            //cusines need to implement
+            case "American":
+                value ="cuisine^cuisine-american";
+                break;
+            case "Italian":
+                value ="cuisine^cuisine-italian";
+                break;
+            default:
+                break;
+        }
+
+        return value;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        DatabaseReference databaseItems = FirebaseDatabase.getInstance().getReference("items").child(userId);
+
+        databaseItems.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                itemList.clear();
+
+                for(DataSnapshot itemSnapshot : dataSnapshot.getChildren()) {
+                    Item item = itemSnapshot.getValue(Item.class);
+
+                    itemList.add(item.getItemName());
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        DatabaseReference databaseRestrictions = FirebaseDatabase.getInstance().getReference("restrictions").child(userId);
+
+        databaseRestrictions.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                allergyList.clear();
+
+                for(DataSnapshot itemSnapshot : dataSnapshot.getChildren()) {
+                    Restriction restriction = itemSnapshot.getValue(Restriction.class);
+
+                    allergyList.add(translate(restriction.getRestriction()));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        DatabaseReference databaseUsers = FirebaseDatabase.getInstance().getReference("users");
+
+        databaseUsers.child(userId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                User user = dataSnapshot.getValue(User.class);
+                dietType = translate(user.getDietType());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
             }
         });

@@ -37,6 +37,10 @@ public class RecipeListActivity extends AppCompatActivity {
     public String course;
     public String cuisine;
 
+    public ArrayList<String> itemList = new ArrayList<>();
+    public ArrayList<String> allergyList = new ArrayList<>();
+    public String dietType;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +53,13 @@ public class RecipeListActivity extends AppCompatActivity {
         duration = data.getString("durationText");
         course = data.getString("courseText");
         cuisine = data.getString("cuisineText");
+        itemList = data.getStringArrayList("itemList");
+        allergyList = data.getStringArrayList("allergyList");
+        dietType = data.getString("dietType");
+
+        Log.i("Data Items", String.valueOf(itemList.size()));
+        Log.i("Data Allergies", String.valueOf(allergyList.size()));
+        Log.i("Data Diet", dietType);
 
         getRecipes();
 
@@ -61,7 +72,7 @@ public class RecipeListActivity extends AppCompatActivity {
 
     private void getRecipes() {
         final YummlyAPI yummlyService = new YummlyAPI();
-        yummlyService.searchRecipes(userId, holiday, duration, course, cuisine, new Callback() {
+        yummlyService.searchRecipes(itemList, allergyList, dietType, holiday, duration, course, cuisine, new Callback() {
 
 
             @Override

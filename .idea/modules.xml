@@ -3,11 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CST438_Project_Personal_Recipe_Finder.iml" filepath="$PROJECT_DIR$/CST438_Project_Personal_Recipe_Finder.iml" />
-<<<<<<< HEAD
-      <module fileurl="file://C:\CST438_Project_Personal_Recipe_Finder-master\CST438_Project_Personal_Recipe_Finder\.idea\CST438_Project_Personal_Recipe_Finder.iml" filepath="C:\CST438_Project_Personal_Recipe_Finder-master\CST438_Project_Personal_Recipe_Finder\.idea\CST438_Project_Personal_Recipe_Finder.iml" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/.idea/CST438_Project_Personal_Recipe_Finder.iml" filepath="$PROJECT_DIR$/.idea/CST438_Project_Personal_Recipe_Finder.iml" />
->>>>>>> 12c399d8376ab269d70d0e84e68d71f4ebe7dce1
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -30,9 +30,7 @@ import okhttp3.Response;
 
 public class YummlyAPI {
 
-    public static void searchRecipes(String userId, String holiday, String duration, String course, String cuisine, Callback callback){ ArrayList<String> ingredients = getItemList(userId);
-      ArrayList<String> allergies = getAllergyList(userId);
-      ArrayList<String> dietType = getDietType(userId);
+    public static void searchRecipes(ArrayList<String> ingredients, ArrayList<String> allergies, String dietType, String holiday, String duration, String course, String cuisine, Callback callback){
 
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
@@ -47,11 +45,9 @@ public class YummlyAPI {
         }
 
         //adds diet type to the URL
-        if(!dietType.isEmpty())
+        if(!dietType.equals("None"))
         {
-            for(String diet: dietType) {
-                urlBuilder.addQueryParameter(Constants.SEARCH_QUERY_DIET, diet);
-            }
+            urlBuilder.addQueryParameter(Constants.SEARCH_QUERY_DIET, dietType);
         }
 
         //add allegery list to the URL
@@ -139,146 +135,5 @@ public class YummlyAPI {
         e.printStackTrace();
     }
         return recipes;
-    }
-
-    public static ArrayList<String> getItemList(String userId) {
-        DatabaseReference databaseItems = FirebaseDatabase.getInstance().getReference("items").child(userId);
-        final ArrayList<String> itemList = new ArrayList<>();
-
-        databaseItems.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                itemList.clear();
-
-                for(DataSnapshot itemSnapshot : dataSnapshot.getChildren()) {
-                    Item item = itemSnapshot.getValue(Item.class);
-
-                    itemList.add(item.getItemName());
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        return itemList;
-    }
-
-    public static ArrayList<String> getAllergyList(String userId) {
-        DatabaseReference databaseItems = FirebaseDatabase.getInstance().getReference("restrictions").child(userId);
-        final ArrayList<String> allergyList = new ArrayList<>();
-
-        databaseItems.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                allergyList.clear();
-
-                for(DataSnapshot itemSnapshot : dataSnapshot.getChildren()) {
-                    Restriction restriction = itemSnapshot.getValue(Restriction.class);
-
-                    allergyList.add(translate(restriction.getRestriction()));
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        return allergyList;
-    }
-
-    public static ArrayList<String> getDietType(String userId) {
-        DatabaseReference databaseUsers = FirebaseDatabase.getInstance().getReference("users");
-        final ArrayList<String> dietTypeList = new ArrayList<>();
-
-        databaseUsers.child(userId).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                dietTypeList.clear();
-
-                User user = dataSnapshot.getValue(User.class);
-                dietTypeList.add(translate(user.getDietType()));
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        return dietTypeList;
-    }
-
-    public static String translate(String value) {
-
-        switch(value) {
-            //Diet Types
-            case "Lacto Vegetarian":
-                value = "388^Lacto vegetarian";
-                break;
-            case "Ovo Vegetarian":
-                value = "389^Ovo vegetarian";
-                break;
-            case "Pescetarian":
-                value = "390^Pescetarian";
-                break;
-            case "Vegan":
-                value = "386^Vegan";
-                break;
-            case "Lacto-ovo Vegetarian":
-                value = "387^Lacto-ovo vegetarian";
-                break;
-            case "Paleo":
-                value = "403^Paleo";
-                break;
-            //Allegeries
-            case "Gluten":
-                value = "393^Gluten-Free";
-                break;
-            case "Peanut":
-                value = "394^Peanut-Free";
-                break;
-            case "Seafood":
-                value = "398^Seafood-Free";
-                break;
-            case "Sesame":
-                value = "399^Sesame-Free";
-                break;
-            case "Soy":
-                value = "400^Soy-Free";
-                break;
-            case "Dairy":
-                value = "396^Dairy-Free";
-                break;
-            case "Egg":
-                value = "397^Egg-Free";
-                break;
-            case "Sulfite":
-                value = "401^Sulfite-Free";
-                break;
-            case "Tree Nut":
-                value = "395^Tree Nut-Free";
-                break;
-            case "Wheat":
-                value = "392^Wheat-Free";
-                break;
-            //cusines need to implement
-            case "American":
-                value ="cuisine^cuisine-american";
-                break;
-            case "Italian":
-                value ="cuisine^cuisine-italian";
-                break;
-            default:
-                break;
-        }
-
-        return value;
     }
 }
