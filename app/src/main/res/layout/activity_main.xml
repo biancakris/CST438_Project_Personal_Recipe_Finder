@@ -84,7 +84,7 @@
                 android:fontFamily="@font/shadows_into_light"
                 android:text="Login"
                 android:textAllCaps="true"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/white"
                 android:textSize="25dp"
                 android:textStyle="bold" />
 

@@ -87,7 +87,7 @@
                 android:textAllCaps="true"
                 android:textStyle="bold"
                 android:textSize="25dp"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/textViewLogin"

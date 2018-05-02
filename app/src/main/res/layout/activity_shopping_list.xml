@@ -60,7 +60,7 @@
         android:textStyle="bold"
         android:textSize="20dp"
         android:text="Add"
-        android:textColor="@color/colorAccent" />
+        android:textColor="@color/white" />
 
     <ImageButton
         android:id="@+id/chewsButton"
