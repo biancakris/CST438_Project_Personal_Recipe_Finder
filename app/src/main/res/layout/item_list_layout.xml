@@ -9,23 +9,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:paddingLeft="10dp"
+        android:textColor="@color/white"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
 
     <TextView
         android:id="@+id/textViewType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:paddingLeft="20dp"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/textViewQuantity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:paddingLeft="20dp"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/textViewUnit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:paddingLeft="20dp"
         android:text="TextView" />
 </LinearLayout>

@@ -1,5 +1,6 @@
 package edu.csumb.abmedina.cst438_project_personal_recipe_finder;
 
+import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageButton;
@@ -23,6 +24,7 @@ public class DashboardActivity extends AppCompatActivity {
     Button recipeBookButton;
     Button shoppingListButton;
     Button searchButton;
+    Button myFridgeButton;
 
     String userId;
 
@@ -40,6 +42,12 @@ public class DashboardActivity extends AppCompatActivity {
         recipeBookButton = findViewById(R.id.recipeButton);
         shoppingListButton = findViewById(R.id.shoppingListButton);
         searchButton = findViewById(R.id.searchButton);
+        myFridgeButton = findViewById(R.id.myFridgeButton);
+
+        shoppingListButton.setPaintFlags(shoppingListButton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        recipeBookButton.setPaintFlags(recipeBookButton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        searchButton.setPaintFlags(searchButton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        myFridgeButton.setPaintFlags(myFridgeButton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         //On Click (Profile Button)
         chefButton.setOnClickListener(new View.OnClickListener() {
@@ -112,6 +120,19 @@ public class DashboardActivity extends AppCompatActivity {
 
         //OnClick(list)
         shoppingListButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(DashboardActivity.this, ShoppingListActivity.class);
+                Bundle data =  new Bundle();
+
+                data.putString("userId", userId);
+                intent.putExtras(data);
+                startActivity(intent);
+
+            }
+        });
+
+        myFridgeButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
                 Intent intent = new Intent(DashboardActivity.this, ShoppingListActivity.class);

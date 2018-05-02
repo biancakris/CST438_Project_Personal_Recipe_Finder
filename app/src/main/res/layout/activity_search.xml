@@ -15,6 +15,19 @@
         android:rotation="180"
         android:src="@drawable/dishes_bg" />
 
+    <TextView
+        android:id="@+id/titleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="76dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/shadows_into_light"
+        android:text="Recipe Finder"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
     <ImageButton
         android:id="@+id/chewsButton"
         android:layout_width="150dp"
@@ -29,14 +42,14 @@
         android:id="@+id/durationLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/durationSpinner"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_marginStart="81dp"
-        android:layout_marginTop="137dp"
+        android:fontFamily="@font/shadows_into_light"
         android:text="Duration: "
         android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="25dp"/>
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
     <Spinner
         android:id="@+id/durationSpinner"
@@ -44,17 +57,18 @@
         android:layout_height="52dp"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/courseSpinner"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="194dp"
         android:background="@drawable/login_button"
+        android:fontFamily="@font/shadows_into_light"
         android:textColor="@color/colorAccent" />
 
     <TextView
         android:id="@+id/courseLable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/durationLabel"
-        android:layout_marginTop="209dp"
+        android:layout_alignBottom="@+id/courseSpinner"
+        android:layout_alignEnd="@+id/durationLabel"
+        android:fontFamily="@font/shadows_into_light"
         android:text="Course: "
         android:textColor="@color/white"
         android:textSize="25dp"
@@ -66,18 +80,19 @@
         android:layout_height="52dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="85dp"
-        android:layout_marginTop="198dp"
+        android:layout_marginEnd="104dp"
+        android:layout_marginTop="266dp"
         android:background="@drawable/login_button"
+        android:fontFamily="@font/shadows_into_light"
         android:textColor="@color/colorAccent" />
 
     <TextView
         android:id="@+id/cuisineLable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/durationLabel"
-        android:layout_marginTop="272dp"
+        android:layout_alignBottom="@+id/cuisineSpinner"
+        android:layout_alignEnd="@+id/durationLabel"
+        android:fontFamily="@font/shadows_into_light"
         android:text="Cuisine: "
         android:textColor="@color/white"
         android:textSize="25dp"
@@ -87,19 +102,20 @@
         android:id="@+id/cuisineSpinner"
         android:layout_width="120dp"
         android:layout_height="52dp"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/durationSpinner"
-        android:layout_marginTop="261dp"
+        android:layout_marginBottom="266dp"
         android:background="@drawable/login_button"
+        android:fontFamily="@font/shadows_into_light"
         android:textColor="@color/colorAccent" />
 
     <TextView
         android:id="@+id/holidayable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/durationLabel"
-        android:layout_marginBottom="232dp"
+        android:layout_alignEnd="@+id/durationLabel"
+        android:layout_alignTop="@+id/holidaySpinner"
+        android:fontFamily="@font/shadows_into_light"
         android:text="Holiday: "
         android:textColor="@color/white"
         android:textSize="25dp"
@@ -111,8 +127,9 @@
         android:layout_height="52dp"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/durationSpinner"
-        android:layout_marginBottom="226dp"
+        android:layout_marginBottom="191dp"
         android:background="@drawable/login_button"
+        android:fontFamily="@font/shadows_into_light"
         android:textColor="@color/colorAccent" />
 
 
@@ -122,8 +139,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="118dp"
+        android:layout_marginBottom="102dp"
         android:background="@drawable/login_button"
+        android:fontFamily="@font/shadows_into_light"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:text="Search" />
 
 

@@ -1,6 +1,7 @@
 package edu.csumb.abmedina.cst438_project_personal_recipe_finder;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Debug;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.Spinner;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 
 public class SearchActivity extends AppCompatActivity {
@@ -22,6 +24,8 @@ public class SearchActivity extends AppCompatActivity {
     Button searchButton;
 
     ImageButton chewsButton;
+
+    TextView titleLabel;
 
     String userId;
 
@@ -40,6 +44,10 @@ public class SearchActivity extends AppCompatActivity {
 
         searchButton = findViewById(R.id.searchButton);
         chewsButton = findViewById(R.id.chewsButton);
+
+        titleLabel = findViewById(R.id.titleLabel);
+
+        titleLabel.setPaintFlags(titleLabel.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         //set array adapter for spinner using string array and default spinner layout
         ArrayAdapter<CharSequence> durationAdapter = ArrayAdapter.createFromResource(
@@ -75,8 +83,12 @@ public class SearchActivity extends AppCompatActivity {
                 Bundle data =  new Bundle();
 
                 data.putString("userId", userId);
+                data.putString("holidayText",HolidayText);
+                data.putString("durationText", durationText);
+                data.putString("courseText", courseText);
+                data.putString("cusineText", cuisineText);
                 intent.putExtras(data);
-                Log.d("breaks", "breaks" );
+                //Log.d("breaks", "breaks" );
                 startActivity(intent);
 
             }

@@ -12,6 +12,11 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+//perhaps these do not matter
+import edu.csumb.abmedina.cst438_project_personal_recipe_finder.R;
+import edu.csumb.abmedina.cst438_project_personal_recipe_finder.Recipe;
+import edu.csumb.abmedina.cst438_project_personal_recipe_finder.RecipeDetailActivity;
+
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
@@ -71,7 +76,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
 
             Log.d("mContext","mContext:\n "+mContext.toString());
 
-            //mContext.startActivity(intent);
+           // mContext.startActivity(intent);
 
         }
 

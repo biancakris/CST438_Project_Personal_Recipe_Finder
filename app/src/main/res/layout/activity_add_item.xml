@@ -50,6 +50,7 @@
             android:layout_height="35dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
+            android:textColor="@color/white"
             android:background="@drawable/login_button"
             android:text="Add" />
     </RelativeLayout>
